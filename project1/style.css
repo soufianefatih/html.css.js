@@ -52,7 +52,7 @@ border-radius:  50px;
 
 }
 .container {
-    /* height: 100vh; */
+    height: 100%;
     /* width: 100vw; */
     display: flex;
     align-items: center;
@@ -102,7 +102,7 @@ border-radius:  50px;
     outline: none;
     border: none;
     border-radius:  50px;
-    background-color:  #3cbdd4;
+    background-color:  #308879;
     color: #fff;
     font-size: 17px;
     height: 40px;
