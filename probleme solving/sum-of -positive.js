@@ -1,4 +1,4 @@
-// methode 1
+// methode 1 ///
 // function sumPosiuve (arr) {
 //   let intValue = 0
 //   for(let i=0 ; i < arr.length; i++){
@@ -7,10 +7,18 @@
 //   }
 //   return intValue
 // }
-// methode 2 
+// methode 2 ///
 
 // function sumPosiuve (arr) {
-//     return arr.filter((x)=> x > 0).reduce((a, b) => a +b, 0)
+//     return arr.filter((x)=> x > 0).reduce((a, b) => a+b, 0)
 //   }
 
 // console.log(sumPosiuve([2, -1 , 3]));
+
+
+
+
+
+
+
+
