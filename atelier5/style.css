@@ -275,6 +275,12 @@ position: relative;
            font-size: 3rem;
            display: block;
          }
+         
+     header .nav-toggle{
+       top: 5.5rem;
+       opacity: 1;
+    }
+
      .home .content p{
       padding:1.5rem 2rem ;
      } 
