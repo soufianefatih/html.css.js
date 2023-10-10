@@ -47,7 +47,7 @@ header .navbar ul{
     display: flex;
     align-items: center;
     justify-content: space-between;
-   list-style: none;
+    list-style: none;
 }
 
 header .navbar ul li {
@@ -86,9 +86,11 @@ header .navbar ul li a {
     display: none;
   }
 
-
-
-
+  .active-toggle {
+    top: 5rem; 
+   transition: 0.6s; 
+   opacity: 1;
+}
 
   /* media queries */
   @media (max-width:768PX) {
@@ -98,16 +100,17 @@ header .navbar ul li a {
 
     header .fa-bars {
       
-        display: block;     
+        display: block;
+        cursor: pointer;     
     }
    
     header .navbar {
       position: fixed;
       top: -100rem; left: 0;
       width:100% ;
-     border-radius: 1rem;
-     background: #fff;
-     opacity: 0;
+      border-radius: 1rem;
+      background: #fff;
+      opacity: 0;
     }
     
     header .navbar ul  {
@@ -124,6 +127,8 @@ header .navbar ul li a {
            font-size: 3rem;
            display: block;
          }
+           
+
   }
  
  
