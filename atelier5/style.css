@@ -103,16 +103,27 @@ header .navbar ul li a {
    
     header .navbar {
       position: fixed;
-      top: 5.7rem; left: 0;
+      top: -100rem; left: 0;
       width:100% ;
      border-radius: 1rem;
+     background: #fff;
+     opacity: 0;
     }
     
     header .navbar ul  {
        flex-flow:column;
        padding: 2rem 0;
       }
-     
+    header .navbar ul li {
+      margin: 1rem 0;
+      width: 100%;
+      text-align: center;
+       }
+
+     header .navbar ul li a{
+           font-size: 3rem;
+           display: block;
+         }
   }
  
  
