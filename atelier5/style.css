@@ -41,6 +41,13 @@ header{
     justify-content: space-between;
     padding:  1rem 2rem ;
     z-index: 1000;
+    transition: .2s;
+}
+.header-active {
+  top: 0;
+  width: 100%;
+  border-radius: 0;
+  box-shadow: 0 1rem .3rem rgba(0, 0,0, .3);
 }
 
 
