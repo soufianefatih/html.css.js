@@ -90,22 +90,45 @@
 // :::::::::::      find the needle in the haystack //////////////////////////////
 
 
-function findNeedle(array) {
+// function findNeedle(array) {
   // for (let i = 0; i < array.length; i++) {
   //   if (array[i] === 'needle') {
   //     return 'found the needle at position' + " "+ i;
   //   }
     
   // }
-  return 'found the needle at position' + " " + array.indexOf('needle')
+//   return 'found the needle at position' + " " + array.indexOf('needle')
   
+// }
+
+
+// console.log(findNeedle(["a","v","c","k","needle","d"]));
+
+
+
+
+// :::::::::::::::      check if the number is positive add it to the array , if negative ad to the sum variable //////////////////////////////
+
+
+
+function count(params) {
+  // let postiveArray = [];
+  // let sumnNgative = 0
+  // for (let i = 0; i < params.length; i++) {
+  //   if (params[i] > 0) {
+  //     postiveArray.push(params[i])
+      
+  //   }else {
+  //     sumnNgative += params[i]
+  //   } 
+  // }
+  // return [ postiveArray.length,sumnNgative]
+  let postiveArray = params.filter((x)=> x > 0).length
+  let sumnNgative = params.filter((x) => x < 0).reduce((a,b)=> a+b)
+  let result = [postiveArray, sumnNgative]
+  console.log(postiveArray);
+  console.log(sumnNgative);
+  return result
 }
 
-
-console.log(findNeedle(["a","v","c","k","needle","d"]));
-
-
-
-
-
-
+console.log(count([1,2,3,-1,-2]));
