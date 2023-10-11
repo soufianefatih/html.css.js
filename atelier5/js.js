@@ -9,7 +9,7 @@ $(document).ready(function () {
   })
     
 $(window).on('scroll load',function () {
-  
+
   $('.fa-bars').removeClass('fa-times');
   $('.navbar').removeClass('nav-toggle');
 
@@ -28,12 +28,9 @@ $(window).on('scroll load',function () {
 
 
 function toggleFunction() {
-  nav.classList.toggle('active');
+  nav.classList.toggle('active-toggle');
 }
 toggle.addEventListener('click',toggleFunction )
-
-
-
 
 
 

@@ -27,8 +27,6 @@ body{
     background: #fff;
 }
 
-
-/* header section         //////////////////////////////////////////////////////////////////////////////////////// */
 header{
     width: 96%;
     background: #fff;
@@ -95,7 +93,7 @@ header .navbar ul li a {
     display: none;
   }
 
-  header .active {
+  header .active-toggle {
     top: 5.5rem !important;
    transition: 0.6s; 
    opacity: 1 !important;
@@ -108,8 +106,6 @@ header .fa-times {
   transition: .2s;
 }
 
-/* header section         //////////////////////////////////////////////////////////////////////////////////////// */
-/* home section         //////////////////////////////////////////////////////////////////////////////////////// */
 .home {
 
 min-height: 100vh;
@@ -228,14 +224,6 @@ position: relative;
   border-radius: 50%;
   z-index:-1
 } 
-
-
-
-
-
-
-
-/* home section         //////////////////////////////////////////////////////////////////////////////////////// */
 
 
 
