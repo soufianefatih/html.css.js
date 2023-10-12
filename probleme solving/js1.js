@@ -91,12 +91,12 @@
 
 
 // function findNeedle(array) {
-  // for (let i = 0; i < array.length; i++) {
-  //   if (array[i] === 'needle') {
-  //     return 'found the needle at position' + " "+ i;
-  //   }
+//   for (let i = 0; i < array.length; i++) {
+//     if (array[i] === 'needle') {
+//       return 'found the needle at position' + " "+ i;
+//     }
     
-  // }
+//   }
 //   return 'found the needle at position' + " " + array.indexOf('needle')
   
 // }
@@ -111,7 +111,7 @@
 
 
 
-function count(params) {
+// function count(params) {
   // let postiveArray = [];
   // let sumnNgative = 0
   // for (let i = 0; i < params.length; i++) {
@@ -123,12 +123,12 @@ function count(params) {
   //   } 
   // }
   // return [ postiveArray.length,sumnNgative]
-  let postiveArray = params.filter((x)=> x > 0).length
-  let sumnNgative = params.filter((x) => x < 0).reduce((a,b)=> a+b)
-  let result = [postiveArray, sumnNgative]
-  console.log(postiveArray);
-  console.log(sumnNgative);
-  return result
-}
+//   let postiveArray = params.filter((x)=> x > 0).length
+//   let sumnNgative = params.filter((x) => x < 0).reduce((a,b)=> a+b)
+//   let result = [postiveArray, sumnNgative]
+//   console.log(postiveArray);
+//   console.log(sumnNgative);
+//   return result
+// }
 
-console.log(count([1,2,3,-1,-2]));
+// console.log(count([1,2,3,-1,-2]));
