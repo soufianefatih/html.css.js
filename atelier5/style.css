@@ -226,6 +226,68 @@ position: relative;
 } 
 
 
+.heading {
+   font-size: 4rem;
+   color: var(--pink);
+   padding: 0 1rem;
+   text-align: center;
+   padding-top: 6rem;
+   letter-spacing: .2rem;
+   font-weight: 500;
+}
+
+
+.title {
+   font-size: 2rem;
+   color: #aaa;  
+   padding: 0 1rem;
+   text-align: center;
+   font-weight: 400;
+}
+
+.about .row {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.about .row .image img {
+  height: 70vh;
+  width: 50vw;
+}
+.about .row .content {
+  padding-left: 5rem;
+}
+
+.about .row .content h3{
+  font-size: 3rem;
+  color: var(--pink);
+}
+
+.about .row .content p{
+  font-size: 1.6rem;
+  color:#999;
+  padding: 1rem 0;
+}
+
+
+.about .row .content button {
+  height: 3.5rem;
+  width: 17rem;
+  background: var(--violet);
+  color: #fff;
+  border: none;
+  border-radius: 5rem;
+  box-shadow: 0 .3rem 1rem rgba(0, 0,0, .3);
+  cursor: pointer;
+  transition: .2s;
+}
+
+.about .row .content button:hover {
+  letter-spacing: .2rem;
+  opacity: .8;
+}
+
 
   /* media queries */
   @media (max-width:768PX) {
