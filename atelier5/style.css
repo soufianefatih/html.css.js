@@ -226,7 +226,7 @@ position: relative;
 } 
 
 
-.about .heading {
+.heading {
    font-size: 4rem;
    color: var(--pink);
    padding: 0 1rem;
@@ -237,7 +237,7 @@ position: relative;
 }
 
 
-.about .title {
+ .title {
    font-size: 2rem;
    color: #aaa;  
    padding: 0 1rem;
