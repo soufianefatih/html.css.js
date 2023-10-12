@@ -226,7 +226,7 @@ position: relative;
 } 
 
 
-.heading {
+.about .heading {
    font-size: 4rem;
    color: var(--pink);
    padding: 0 1rem;
@@ -237,7 +237,7 @@ position: relative;
 }
 
 
-.title {
+.about .title {
    font-size: 2rem;
    color: #aaa;  
    padding: 0 1rem;
@@ -334,9 +334,21 @@ position: relative;
      .home .content p{
       padding:1.5rem 2rem ;
      } 
+
      .home::before{
       display: none;
-     }     
+     } 
+
+    .about .row {
+      flex-flow: column-reverse;
+    }  
+    .about .row .image img {
+      height: 60vh;
+      width: 90vw;
+    }  
+    .about .row .content { 
+      padding: 0 2.5rem;
+    }  
 
   }
  
