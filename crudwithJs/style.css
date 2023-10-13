@@ -7,7 +7,7 @@
 
 .about {
 
-    height: 100vh;
+    min-height: 100vh;
     background: linear-gradient(rgba(83, 83, 83, 0.8),rgba(48, 36, 52, 0.8)), url(home.jpg),no-repeat;
     background-size: cover;
     background-position:center ;
@@ -72,64 +72,17 @@
 
 
 
- @media (max-width:768PX) {
-    html {
-        font-size: 55%;
-    }
-
-    header .fa-bars {
-      
-        display: block;
-        cursor: pointer;     
-    }
+ @media (max-width:800PX) {
    
-    header .navbar {
-      position: fixed;
-      top: -100rem; left:0;
-      width:100% ;
-      border-radius: 1rem;
-      background: #fff;
-      opacity: 0;
-      transition: .2s linear;
-    }
-    
-    header .navbar ul  {
-       flex-flow:column;
-       padding: 2rem 0;
-      }
-    header .navbar ul li {
-      margin: 1rem 0;
-      width: 100%;
-      text-align: center;
-       }
 
-     header .navbar ul li a{
-           font-size: 3rem;
-           display: block;
-         }
-         
-     header .nav-toggle{
-       top: 5.5rem;
-       opacity: 1;
-    }
-
-     .home .content p{
-      padding:1.5rem 2rem ;
-     } 
-
-     .home::before{
-      display: none;
-     } 
-
-    .about .row {
+    .about .rowform {
       flex-flow: column-reverse;
     }  
-    .about .row .image img {
+    .about .rowform .image img {
       height: 60vh;
       width: 90vw;
     }  
-    .about .row .content { 
-      padding: 0 2.5rem;
-    }  
+    .about .rowform .content {  
+ margin-bottom: 2rem;    }  
 
   }
