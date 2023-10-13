@@ -8,10 +8,23 @@
     padding-top: 12rem;
 }
 
+.about {
+
+    height: 100vh;
+    background: linear-gradient(rgba(83, 83, 83, 0.8),rgba(48, 36, 52, 0.8)), url(home.jpg),no-repeat;
+    background-size: cover;
+    background-position:center ;
+    background-attachment: fixed;
+    z-index: 0;
+    overflow: hidden;
+    position: relative;
+    
+    }
+
 
 .heading {
     font-size: 4rem;
-    color: var(--pink);
+    color: #fff;
     padding: 0 1rem;
     text-align: center;
     padding-top: 6rem;
@@ -22,7 +35,7 @@
  
   .title {
     font-size: 2rem;
-    color: #aaa;  
+    color:#fff;  
     padding: 0 1rem;
     text-align: center;
     font-weight: 400;
@@ -47,4 +60,14 @@
 
  button{
     width: 20rem;
- }
+    background: #ebebeb !important;
+    color: black !important;
+    margin-top: .5rem !important;
+ } 
+
+ button:hover{
+ 
+  background: rgb(175, 175, 175) !important;
+  letter-spacing: .2rem;
+
+ } 
