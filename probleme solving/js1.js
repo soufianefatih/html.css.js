@@ -138,9 +138,22 @@
 // ::::::::::::::::::::::::::::         Double CHar //////////////////////////////////////////////////////////
 //  exemple "string" >>>>> "ssttrriingngg"
 
-function doubleChar(params) {
-  return params.split('').map((s)=>s.repeat(3)).join('')
+// function doubleChar(params) {
+//   return params.split('').map((s)=>s.repeat(3)).join('')
   
-}
+// }
 
-console.log(doubleChar('karim'));
+// console.log(doubleChar('karim'));
+
+
+
+// ::::::::::::::::::::::::::basics operation matematic //////////////////////////////////////
+
+function calc(x,y,op) {
+  if(op == "+") return x +y
+  if(op == "-") return x -y
+  if(op == "*") return x *y
+  if(op == "/") return x /y
+ 
+}
+console.log(calc(1,-5,"+"));
