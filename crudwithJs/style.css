@@ -8,7 +8,7 @@
 .about {
 
     min-height: 100vh;
-    background: linear-gradient(rgba(83, 83, 83, 0.8),rgba(48, 36, 52, 0.8)), url(home.jpg),no-repeat;
+    background: linear-gradient(rgba(29, 24, 24, 0.8),rgba(48, 36, 52, 0.8)), url(js.jpg),no-repeat;
     background-size: cover;
     background-position:center ;
     background-attachment: fixed;
@@ -65,8 +65,7 @@
  button:hover{
  
   background: rgb(175, 175, 175) !important;
-  letter-spacing: .2rem;
-
+ 
  } 
 
 
