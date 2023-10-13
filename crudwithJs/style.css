@@ -4,7 +4,6 @@
 }
 
 
-
 .about {
 
     min-height: 100vh;
@@ -43,6 +42,9 @@
    justify-content: space-around;
    align-items: center;
  }
+ .about form{
+    width: 25rem;
+ }
  
  .about .rowform .image img {
    height: 70vh;
@@ -56,7 +58,7 @@
  }
 
  button{
-    width: 20rem;
+    width: 25rem;
     background: #ebebeb !important;
     color: black !important;
     margin-top: .5rem !important;
@@ -67,8 +69,6 @@
   background: rgb(175, 175, 175) !important;
  
  } 
-
-
 
 
  @media (max-width:800PX) {
