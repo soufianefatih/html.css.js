@@ -150,10 +150,11 @@
 // ::::::::::::::::::::::::::basics operation matematic //////////////////////////////////////
 
 function calc(x,y,op) {
-  if(op == "+") return x +y
-  if(op == "-") return x -y
-  if(op == "*") return x *y
-  if(op == "/") return x /y
+  // if(op == "+") return x +y
+  // if(op == "-") return x -y
+  // if(op == "*") return x *y
+  // if(op == "/") return x /y
+  return eval(x+op+y)
  
 }
-console.log(calc(1,-5,"+"));
+console.log(calc(1,-5,"*"));
