@@ -132,3 +132,15 @@
 // }
 
 // console.log(count([1,2,3,-1,-2]));
+
+
+
+// ::::::::::::::::::::::::::::         Double CHar //////////////////////////////////////////////////////////
+//  exemple "string" >>>>> "ssttrriingngg"
+
+function doubleChar(params) {
+  return params.split('').map((s)=>s.repeat(3)).join('')
+  
+}
+
+console.log(doubleChar('karim'));
