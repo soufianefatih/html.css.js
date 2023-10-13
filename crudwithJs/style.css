@@ -7,3 +7,44 @@
     width: 65vw;
     padding-top: 12rem;
 }
+
+
+.heading {
+    font-size: 4rem;
+    color: var(--pink);
+    padding: 0 1rem;
+    text-align: center;
+    padding-top: 6rem;
+    letter-spacing: .2rem;
+    font-weight: 500;
+ }
+ 
+ 
+  .title {
+    font-size: 2rem;
+    color: #aaa;  
+    padding: 0 1rem;
+    text-align: center;
+    font-weight: 400;
+ }
+ 
+ .about .rowform {
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+ }
+ 
+ .about .rowform .image img {
+   height: 70vh;
+   width: 50vw;
+ }
+ .about .rowform .content {
+   padding: 3rem;
+   background: #b35042;
+   align-items: center;
+   border-radius: 3rem;
+ }
+
+ button{
+    width: 20rem;
+ }
