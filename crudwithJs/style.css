@@ -23,7 +23,7 @@
     color: #fff;
     padding: 0 1rem;
     text-align: center;
-    padding-top: 6rem;
+    padding-top: 3rem;
     letter-spacing: .2rem;
     font-weight: 500;
  }
@@ -55,6 +55,7 @@
    background: #b35042;
    align-items: center;
    border-radius: 3rem;
+   margin-bottom: 1rem;
  }
 
  button{
@@ -71,7 +72,7 @@
  } 
 
 
- @media (max-width:800PX) {
+ @media (max-width:900PX) {
    
 
     .about .rowform {
