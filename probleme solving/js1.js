@@ -161,3 +161,22 @@
 
 
 // ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; To square(root) or not square(root)
+// solution
+// loop trough the array 
+// check if the number has  an integer square or not 
+// it true  take the root , if false square the number
+// return the new array
+
+function Square(params) {
+  let array = []
+  for (let i = 0; i < params.length; i++) {
+    if (Number.isInteger(Math.sqrt(params[i]))) {
+
+       array.push(Math.sqrt(params[i]))
+    }else{
+      array.push(params[i]*params[i])
+    }
+  }
+  return array
+}
+console.log(Square([4,2,9,5,3]));
