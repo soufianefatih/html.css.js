@@ -168,15 +168,15 @@
 // return the new array
 
 function Square(params) {
-  let array = []
-  for (let i = 0; i < params.length; i++) {
-    if (Number.isInteger(Math.sqrt(params[i]))) {
+  // let array = []
+  // for (let i = 0; i < params.length; i++) {
+  //   if (Number.isInteger(Math.sqrt(params[i]))) {
 
-       array.push(Math.sqrt(params[i]))
-    }else{
-      array.push(params[i]*params[i])
-    }
-  }
-  return array
+  //      array.push(Math.sqrt(params[i]))
+  //   }else{
+  //     array.push(params[i]*params[i])
+  //   }
+  // }
+  return params.map((num)=> Number.isInteger(Math.sqrt(num)) ? Math.sqrt(num) : num*num )
 }
-console.log(Square([4,2,9,5,3]));
+console.log(Square([4,2,9,5,3,64]));
