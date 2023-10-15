@@ -82,13 +82,13 @@ btns.forEach((btn )=> {
     btn.addEventListener('click',()=>{
 
         if (count > 0)
-        counter.style.color = 'green'
+        counte.style.color = 'green'
   
       if (count < 0)
-        counter.style.color = 'red'
+        counte.style.color = 'red'
   
       if (count === 0)
-        counter.style.color = 'blue'
+        counte.style.color = 'blue'
 
 
     })
