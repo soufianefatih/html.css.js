@@ -90,7 +90,6 @@ btns.forEach((btn )=> {
       if (count === 0)
         counte.style.color = 'blue'
 
-
     })
     
 });
