@@ -29,6 +29,11 @@
     margin: 5px;
   }
   
+  .btn:hover{
+    background: green;
+    color: azure;
+  }
+  
   .up {
     animation: up 0.5s ease;
     position: relative;
