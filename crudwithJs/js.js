@@ -3,6 +3,12 @@ let userEmail = document.getElementById('userEmail')
 let userNumber = document.getElementById('userNumber')
 let userMsg = document.getElementById('userMsg')
 let sendBtn = document.getElementById('sendBtn')
+let formType = document.getElementById('formType')
+let curentRow = document.getElementById('curentRow')
+
+
+
+
 let users = [];
 
 
@@ -44,6 +50,15 @@ function showData() {
 function deleteUser(i) {
     users.splice(i,1)
     showData()
+    
+}
+function updateUser(i) {
+    userName.value= users[i].name
+    userEmail.value=users[i].email
+    userNumber.value=users[i].number
+    userMsg.value=users[i].message
+    formType.value ='update'
+    curentRow.value=i
     
 }
 
