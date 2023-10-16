@@ -7,7 +7,9 @@
 }
 
 body{
-    background-color: #19375b;
+    background: linear-gradient(rgba(240, 241, 244, 0.8),rgba(82, 133, 178, 0.8)),url(tictac.jpg);
+    background-size: cover;
+    background-position:center ;
     height: 100vh;
     font-family: 'Roboto',Helvetica,arial, sans-serif;
     font-size: 1.5rem;
