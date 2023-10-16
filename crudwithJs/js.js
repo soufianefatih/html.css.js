@@ -19,10 +19,18 @@ sendBtn.addEventListener('click',function () {
         number:userNumber.value,
         message : userMsg.value
     }
+    if (formType.value === 'create') {
+        users.push(user) ;
 
-    users.push(user) ;
-    showData()   
-})
+    }else if (formType.value === 'update'){
+        users[curentRow.value]= user
+        // console.log(' users[curentRow.value]', users[curentRow.value]);
+    }
+
+    showData() ; 
+    resetForm()
+
+});
 
 
 
@@ -53,12 +61,25 @@ function deleteUser(i) {
     
 }
 function updateUser(i) {
-    userName.value= users[i].name
-    userEmail.value=users[i].email
-    userNumber.value=users[i].number
-    userMsg.value=users[i].message
-    formType.value ='update'
-    curentRow.value=i
+    userName.value= users[i].name;
+    userEmail.value=users[i].email;
+    userNumber.value=users[i].number;
+    userMsg.value=users[i].message;
+    formType.value ='update';
+    curentRow.value=i;
+
+    // console.log('userName.value',userName.value);
+    // console.log('1 curentRow.value', curentRow.value);
+    // console.log('i',i);
     
+}
+
+
+function resetForm() {
+    formType.value= 'create';
+    userName.value= "";
+    userEmail.value="";
+    userNumber.value="";
+    userMsg.value="";
 }
 
