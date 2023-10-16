@@ -29,7 +29,9 @@ function showData() {
         <td>`+users[i].number+`</td>
         <td>`+users[i].message+`</td>
         <td>
-        <button class='btn btn-danger' onclick='deleteUser(`+i+`)'>Delete</button>
+        <button   type="button" class="btn btn-danger" onclick='deleteUser(`+i+`)'>Delete</button>
+        <button  type="button"class='btn btn-info' onclick='updateUser(`+i+`)'>Update</button>
+
         </td>
         
         </tr>`;
