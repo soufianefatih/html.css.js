@@ -167,7 +167,7 @@
 // it true  take the root , if false square the number
 // return the new array
 
-function Square(params) {
+// function Square(params) {
   // let array = []
   // for (let i = 0; i < params.length; i++) {
   //   if (Number.isInteger(Math.sqrt(params[i]))) {
@@ -177,6 +177,13 @@ function Square(params) {
   //     array.push(params[i]*params[i])
   //   }
   // }
-  return params.map((num)=> Number.isInteger(Math.sqrt(num)) ? Math.sqrt(num) : num*num )
+//   return params.map((num)=> Number.isInteger(Math.sqrt(num)) ? Math.sqrt(num) : num*num )
+// }
+// console.log(Square([4,2,9,5,3,64]));
+
+
+
+// /////////////////////////////// Array includes ////////////////////////
+function check(a,x) {
+  return a.includes(x)  
 }
-console.log(Square([4,2,9,5,3,64]));
