@@ -14,5 +14,20 @@ sendBtn.addEventListener('click',function () {
         message : userMsg.value
     }
 
-    users.push(user)    
+    users.push(user) ;
+    showData()   
 })
+
+
+
+function showData() {
+    let tableRow = '';
+    for (let i = 0; i < users.length; i++) {
+        tableRow += "<tr><td>"+users[i].name+"</td><td>"+users[i].email+"</td><td>"
+        +users[i].number+"</td><td>"+users[i].message+"</td><td>";
+        
+    }
+    document.getElementById('tablebody').innerHTML=tableRow
+}
+
+
