@@ -230,9 +230,28 @@
 /// /////////////////////////////// Reversing words in string ////////////////////////
 
 
-function reverseString(string) {
-  return string.split(" ").reverse().toString()
+// function reverseString(string) {
+//   return string.split(" ").reverse().toString()
+  
+// }
+
+// console.log(reverseString("hello ali karim. k l"));
+
+
+/// /////////////////////////////// Count by x ////////////////////////
+
+
+
+
+function countByx(x,n) {
+  let array = [];
+
+for (let i = 0; i < x.length; i++) {
+  array.push()
+      
+}
+ return array
   
 }
 
-console.log(reverseString("hello ali karim. k l"));
+console.log(countByx(1,2));
