@@ -184,8 +184,17 @@
 
 
 // /////////////////////////////// Array includes ////////////////////////
-function check(a,x) {
-  return a.includes(x)  
+// function check(a,x) {
+//   return a.includes(x)  
+// }
+
+// console.log(check(['a','b'],'c'));
+
+// /////////////////////////////// remove string space ////////////////////////
+
+function noSpace(x) {
+  return x.split(" ").join("");
+
 }
 
-console.log(check(['a','b'],'c'));
+console.log(noSpace('hell o'));
