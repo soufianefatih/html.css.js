@@ -249,16 +249,30 @@
 
 
 
-function countByx(x,n) {
-  // let array = [];
+// function countByx(x,n) {
+//   // let array = [];
 
-// for (let i = 1; i <= n ; i++) {
-//     array.push(x*i)
+// // for (let i = 1; i <= n ; i++) {
+// //     array.push(x*i)
       
-// }
-//  return array
-return Array.from(Array(n +1).keys()).slice(1).map((number) =>  number*x)
+// // }
+// //  return array
+// // return Array.from(Array(n +1).keys()).slice(1).map((number) =>  number*x)
+// let array = Array.from(Array(n).keys()).slice(1)
+// console.log(array);
   
+// }
+// countByx(3,4)
+
+// console.log(countByx(2,5));
+
+
+/// /////////////////////////////// Keep hydrated  ////////////////////////
+
+
+function hydrated(time) {
+  
+  return Math.floor(time / 2)
 }
 
-console.log(countByx(2,5));
+console.log(hydrated(3));
