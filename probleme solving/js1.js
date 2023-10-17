@@ -192,9 +192,23 @@
 
 // /////////////////////////////// remove string space ////////////////////////
 
-function noSpace(x) {
-  return x.split(" ").join("");
+// function noSpace(x) {
+//   return x.split(" ").join("");
 
+// }
+
+// console.log(noSpace('hell o'));
+
+
+// /////////////////////////////// invert value ////////////////////////
+
+
+
+function invertValue(array) {
+  let newrarray = []
+  for (let i = 0; i < array.length; i++) {
+       newrarray.push(array[i]* -1)
+  }
+  return newrarray
 }
-
-console.log(noSpace('hell o'));
+console.log(invertValue([1,2,3]));
