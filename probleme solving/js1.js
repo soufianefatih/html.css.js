@@ -204,11 +204,23 @@
 
 
 
-function invertValue(array) {
-  let newrarray = []
-  for (let i = 0; i < array.length; i++) {
-       newrarray.push(array[i]* -1)
-  }
-  return newrarray
+// function invertValue(array) {
+  // let newrarray = []
+  // for (let i = 0; i < array.length; i++) {
+  //      newrarray.push(array[i]* -1)
+  // }
+  // return newrarray
+//   return array.map((x)=>x*-1)
+// }
+// console.log(invertValue([1,2,3]));
+
+
+
+// /////////////////////////////// Convert bolean ////////////////////////
+
+function boolen(bool) {
+  return bool ? 'yes' : 'no'
 }
-console.log(invertValue([1,2,3]));
+
+
+console.log(boolen(false));
