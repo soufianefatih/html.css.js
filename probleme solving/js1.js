@@ -250,14 +250,15 @@
 
 
 function countByx(x,n) {
-  let array = [];
+  // let array = [];
 
-for (let i = 1; i <= n ; i++) {
-    array.push(x*i)
+// for (let i = 1; i <= n ; i++) {
+//     array.push(x*i)
       
-}
- return array
+// }
+//  return array
+return Array.from(Array(n +1).keys()).slice(1).map((number) =>  number*x)
   
 }
 
-console.log(countByx(1,3));
+console.log(countByx(2,5));
