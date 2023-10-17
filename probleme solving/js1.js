@@ -218,9 +218,21 @@
 
 // /////////////////////////////// Convert bolean ////////////////////////
 
-function boolen(bool) {
-  return bool ? 'yes' : 'no'
+// function boolen(bool) {
+//   return bool ? 'yes' : 'no'
+// }
+
+
+// console.log(boolen(false));
+
+
+
+/// /////////////////////////////// Reversing words in string ////////////////////////
+
+
+function reverseString(string) {
+  return string.split(" ").reverse().toString()
+  
 }
 
-
-console.log(boolen(false));
+console.log(reverseString("hello ali karim. k l"));
