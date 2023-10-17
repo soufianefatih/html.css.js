@@ -270,9 +270,20 @@
 /// /////////////////////////////// Keep hydrated  ////////////////////////
 
 
-function hydrated(time) {
+// function hydrated(time) {
   
-  return Math.floor(time / 2)
+//   return Math.floor(time / 2)
+// }
+
+// console.log(hydrated(3));
+
+
+/// /////////////////////////////// convert number to string ////////////////////////
+
+function convert(num) {
+
+  return num.toString()
+  
 }
 
-console.log(hydrated(3));
+console.log(typeof(convert(12)));
