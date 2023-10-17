@@ -205,12 +205,12 @@
 
 
 // function invertValue(array) {
-  // let newrarray = []
-  // for (let i = 0; i < array.length; i++) {
-  //      newrarray.push(array[i]* -1)
-  // }
-  // return newrarray
-//   return array.map((x)=>x*-1)
+//   let newrarray = []
+//   for (let i = 0; i < array.length; i++) {
+//        newrarray.push(array[i]* -1)
+//   }
+//   return newrarray
+//   // return array.map((x)=>x*-1)
 // }
 // console.log(invertValue([1,2,3]));
 
@@ -240,18 +240,24 @@
 
 /// /////////////////////////////// Count by x ////////////////////////
 
+// solution
+// create new empty array
+// loop though n 
+// multiplay x*n
+// add the number to the new arrat
+// return the new array
 
 
 
 function countByx(x,n) {
   let array = [];
 
-for (let i = 0; i < x.length; i++) {
-  array.push()
+for (let i = 1; i <= n ; i++) {
+    array.push(x*i)
       
 }
  return array
   
 }
 
-console.log(countByx(1,2));
+console.log(countByx(1,3));
