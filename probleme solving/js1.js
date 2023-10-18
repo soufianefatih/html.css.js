@@ -287,3 +287,23 @@
 // }
 
 // console.log(typeof(convert(12)));
+
+
+
+/// /////////////////////////////// calculate the average  ////////////////////////
+
+
+function calcAverage(array) {
+//  let newArray = 0
+
+//  for (let i = 0; i < array.length; i++) {
+    
+//      newArray += array[i]
+  
+//  }
+//  return newArray / array.length
+  let newArray= array.reduce((a,b)=> a+b)
+  return newArray /array.length
+}
+
+console.log(calcAverage([1,2,3, 4,4,6]));
