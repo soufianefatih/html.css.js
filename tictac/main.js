@@ -33,6 +33,9 @@ const winCombos = [
 // variable to check if the cell is empty
 let usedCells = []
 
+
+checkTurn()
+
 // loop to show symbol 
 for (let i = 0; i < 9; i++) {
     cells[i].addEventListener('click', ()=> {
@@ -42,10 +45,12 @@ for (let i = 0; i < 9; i++) {
                 addSymbol(player1,i)
                 checkWin(player1)
                 turn= false
+                checkTurn()
             }else{
               addSymbol(player2,i)
               checkWin(player2)
               turn = true
+              checkTurn()
             }  
             
         } else{
@@ -103,3 +108,17 @@ function reset() {
 }
 
 resetBtn.addEventListener('click',reset)
+
+
+
+// check players turn
+
+
+function checkTurn() {
+    if (turn) {
+        currentTurn.innerHTML = player1.symbol
+    }else {
+        currentTurn.innerHTML = player2.symbol
+
+    }
+}
