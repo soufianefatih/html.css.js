@@ -26,19 +26,28 @@ const winCombos = [
     [2,4,6],
 ]
 
+// variable to check if the cell is empty
+let usedCells = []
+
 // loop to show symbol 
 for (let i = 0; i < 9; i++) {
     cells[i].addEventListener('click', ()=> {
-          if (turn) {
-              addSymbol(player1,i)
-              checkWin(player1)
-              turn= false
-          }else{
-            addSymbol(player2,i)
-            checkWin(player2)
-            turn = true
-          }
 
+        if (isEmpty(i)) {
+            if (turn) {
+                addSymbol(player1,i)
+                checkWin(player1)
+                turn= false
+            }else{
+              addSymbol(player2,i)
+              checkWin(player2)
+              turn = true
+            }  
+            
+        } else{
+            alert('choose an empty cell')
+        }
+         
     })
     
 }
@@ -48,6 +57,7 @@ function addSymbol(player,i) {
 
     cells[i].innerHTML = player.symbol
     player.played.push(i)
+    usedCells.push(i)
     
 }
 
@@ -57,7 +67,17 @@ function addSymbol(player,i) {
 function checkWin(player) {
     winCombos.some(combo => {
         if (combo.every(items => player.played.includes(items))) {
-          alert('you can')   
+          alert('winners')   
         }
     })
+}
+
+
+// func to check if the cell is empty
+
+function isEmpty(i) {
+    if (usedCells.includes(i)) {
+       return false
+    }
+    return true
 }
