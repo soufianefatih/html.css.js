@@ -1,6 +1,10 @@
 // all butons cells O or X
 let cells = document.querySelectorAll('.cell')
+// reset buton
+const resetBtn = document.querySelector('.reset')
 let turn = true
+// turn player
+const currentTurn = document.querySelector('.current-turn')
 //  layers
  let player1= {
     symbol :'<i class="fa fa-close"></i>',
@@ -81,3 +85,21 @@ function isEmpty(i) {
     }
     return true
 }
+
+
+
+// func rest all cells
+
+
+function reset() {
+    cells.forEach(cell => {
+        cell.innerHTML = ''
+    })
+    // reset all butons player and turn 
+    usedCells = []
+    player1.played= []
+    player2.played = []
+    turn = true
+}
+
+resetBtn.addEventListener('click',reset)
