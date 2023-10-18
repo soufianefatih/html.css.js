@@ -280,10 +280,10 @@
 
 /// /////////////////////////////// convert number to string ////////////////////////
 
-function convert(num) {
+// function convert(num) {
 
-  return num.toString()
+//   return num.toString()
   
-}
+// }
 
-console.log(typeof(convert(12)));
+// console.log(typeof(convert(12)));
