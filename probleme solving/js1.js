@@ -294,6 +294,7 @@
 
 
 function calcAverage(array) {
+  if(array === null || array.length === 0) return 0
 //  let newArray = 0
 
 //  for (let i = 0; i < array.length; i++) {
@@ -306,4 +307,13 @@ function calcAverage(array) {
   return newArray /array.length
 }
 
-console.log(calcAverage([1,2,3, 4,4,6]));
+console.log(calcAverage([]));
+
+/// /////////////////////////////// convert string to numbrt ////////////////////////
+
+
+function numberSring(str) {
+  return Number(str)
+  
+}
+console.log( typeof(numberSring(Number('12'))));
