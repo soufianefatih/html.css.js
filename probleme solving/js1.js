@@ -293,8 +293,8 @@
 /// /////////////////////////////// calculate the average  ////////////////////////
 
 
-function calcAverage(array) {
-  if(array === null || array.length === 0) return 0
+// function calcAverage(array) {
+//   if(array === null || array.length === 0) return 0
 //  let newArray = 0
 
 //  for (let i = 0; i < array.length; i++) {
@@ -303,17 +303,30 @@ function calcAverage(array) {
   
 //  }
 //  return newArray / array.length
-  let newArray= array.reduce((a,b)=> a+b)
-  return newArray /array.length
-}
+//   let newArray= array.reduce((a,b)=> a+b)
+//   return newArray /array.length
+// }
 
-console.log(calcAverage([]));
+// console.log(calcAverage([]));
 
-/// /////////////////////////////// convert string to numbrt ////////////////////////
+/// /////////////////////////////// convert string to numbr ////////////////////////
 
 
-function numberSring(str) {
-  return Number(str)
+// function numberSring(str) {
+//   return Number(str)
   
+// }
+// console.log( typeof(numberSring(Number('12'))));
+
+
+/// /////////////////////////////// count the monkeys ////////////////////////
+
+
+function count(num) {
+
+ let nums = Array.from(Array(num +1).keys()).slice(1)
+ return nums
 }
-console.log( typeof(numberSring(Number('12'))));
+
+
+console.log(count(10));
