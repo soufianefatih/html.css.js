@@ -323,9 +323,14 @@
 
 
 function count(num) {
+  let nums = []
 
- let nums = Array.from(Array(num +1).keys()).slice(1)
- return nums
+  for (let i = 1; i <= num; i++) {
+        nums.push(i)    
+  }
+  return nums
+//  let nums = Array.from(Array(num +1).keys()).slice(1)
+//  return nums
 }
 
 
