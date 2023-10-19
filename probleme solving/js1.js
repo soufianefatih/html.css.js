@@ -322,16 +322,36 @@
 /// /////////////////////////////// count the monkeys ////////////////////////
 
 
-function count(num) {
-  let nums = []
+// function count(num) {
+//   let nums = []
 
-  for (let i = 1; i <= num; i++) {
-        nums.push(i)    
-  }
-  return nums
-//  let nums = Array.from(Array(num +1).keys()).slice(1)
-//  return nums
-}
+//   for (let i = 1; i <= num; i++) {
+//         nums.push(i)    
+//   }
+//   return nums
+// //  let nums = Array.from(Array(num +1).keys()).slice(1)
+// //  return nums
+// }
 
 
-console.log(count(10));
+// console.log(count(10));
+
+// ///////////////////////////////////////// exemple qiuz//////////////////////////////
+// const array = [1,2,3]
+// const result = array[2]
+// console.log(result);
+
+
+// const obj = Object.assign({
+//   name :"js"
+// },{
+//   name:"ts"
+// }
+// )
+// const result = obj.name
+
+// console.log(result);
+
+// const array = [1,2,3]
+// const result = array.indexOf(3)
+// console.log(result);
