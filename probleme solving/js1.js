@@ -386,13 +386,14 @@ function great (language) {
     swedish: 'Valkommen',
     welsh: 'Croeso'
     }
-    if (languages[language]) {
-      return languages[language]
+    // if (languages[language]) {
+    //   return languages[language]
       
-    }
-    return languages.english
+    // }
+    // return languages.english
+   return languages[language] ? languages[language] : languages.english
   
 }
 
-console.log(great('estonian'));
+console.log(great('frenchi'));
 
