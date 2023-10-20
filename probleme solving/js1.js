@@ -365,35 +365,45 @@
 // if exist , return the welcome with the languge
 // if not exist, return the default wich is english
 
-function great (language) {
+// function great (language) {
 
-  let languages = {
-    english: 'Welcome',
-    czech: 'Vitejte',
-    danish: 'Velkomst',
-    dutch: 'Welkom',
-    estonian: 'Tere tulemast',
-    finnish: 'Tervetuloa',
-    flemish: 'Welgekomen',
-    french: 'Bienvenue',
-    german: 'Willkommen',
-    irish: 'Failte',
-    italian: 'Benvenuto',
-    latvian: 'Gaidits',
-    lithuanian: 'Laukiamas',
-    polish: 'Witamy',
-    spanish: 'Bienvenido',
-    swedish: 'Valkommen',
-    welsh: 'Croeso'
-    }
-    // if (languages[language]) {
-    //   return languages[language]
+//   let languages = {
+//     english: 'Welcome',
+//     czech: 'Vitejte',
+//     danish: 'Velkomst',
+//     dutch: 'Welkom',
+//     estonian: 'Tere tulemast',
+//     finnish: 'Tervetuloa',
+//     flemish: 'Welgekomen',
+//     french: 'Bienvenue',
+//     german: 'Willkommen',
+//     irish: 'Failte',
+//     italian: 'Benvenuto',
+//     latvian: 'Gaidits',
+//     lithuanian: 'Laukiamas',
+//     polish: 'Witamy',
+//     spanish: 'Bienvenido',
+//     swedish: 'Valkommen',
+//     welsh: 'Croeso'
+//     }
+//     // if (languages[language]) {
+//     //   return languages[language]
       
-    // }
-    // return languages.english
-   return languages[language] ? languages[language] : languages.english
+//     // }
+//     // return languages.english
+//    return languages[language] ? languages[language] : languages.english
+  
+// }
+
+// console.log(great('frenchi'));
+
+
+
+// ::::::::::::::::::::::::::    Sentence Smach ////////////////////
+
+function smach(words) {
+return words.join(" ")  
   
 }
-
-console.log(great('frenchi'));
+console.log(smach(["hello","world"]));
 
