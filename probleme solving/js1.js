@@ -352,9 +352,9 @@
 
 // console.log(result);
 
-// const array = [1,2,3]
-// const result = array.indexOf(3)
-// console.log(result);
+const array = "123"
+const result = array.indexOf(3)
+console.log('result',result);
 
 
 // ///////////////////////////////////////// welcome //////////////////////////////
@@ -401,18 +401,30 @@
 
 // ::::::::::::::::::::::::::    Sentence Smach :://///////////////////////////////
 
-function smach(words) {
-return words.join(" ")  
+// function smach(words) {
+// return words.join(" ")  
+  
+// }
+// console.log(smach(["hello","world"]));
+
+
+ // :::::::::::::::::::: Do i get a bonus? ::::::::::::::::::::::::::::::::::::::::
+
+// function bonusTime(salary, bonus) {
+
+//   return bonus ? salary*10 + " £" : 'did not make enough mony ' + salary
+// }
+
+// console.log(bonusTime(20,false));
+
+
+// :::::::::::::::::::: Exclamation marks remove ::::::::::::::::::::::::::::::::::
+
+
+function remove(string) {
+   
+return string.replace(/!$/, "")
   
 }
-console.log(smach(["hello","world"]));
 
-
-// :::::::::::::::::::: Do i get a bonus? :::::::::::::::::
-
-function bonusTime(salary, bonus) {
-
-  return bonus ? salary*10 + " £" : 'did not make enough mony ' + salary
-}
-
-console.log(bonusTime(20,false));
+console.log(remove("AZ!"));
