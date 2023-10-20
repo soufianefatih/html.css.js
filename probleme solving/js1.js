@@ -432,14 +432,31 @@
 
 // :::::::::::::::::::: Are you playing Bnago ?::::::::::::::::::::::::::::::::::
 
-function plaYing(name) {
-  // if (name[0]== 'R'|| name[0]== 'r' ) {
-  //   return name + ' plays Bango'
-    
-  // }
-  // return name + ' does not play bango'
-  return  name[0]== 'R'|| name[0]== 'r' ? name + ' plays Bango' : name + ' does not play bango'
+// function plaYing(name) {
+ 
+//   return  name[0]== 'R'|| name[0]== 'r' ? name + ' plays Bango' : name + ' does not play bango'
+  
+// }
+
+// console.log(plaYing('aab'));
+
+
+
+// :::::::::::::::::::: Remove second element::::::::::::::::::::::::::::::::::
+
+
+function remove(array) {
+  let newArray = []
+  for (let i = 0; i < array.length; i++) {
+       if (i % 2 === 0) {
+        newArray.push(array[i])
+        
+       }   
+  }
+  return newArray
   
 }
 
-console.log(plaYing('aab'));
+console.log(remove(['a','b','c','d']));
+
+
