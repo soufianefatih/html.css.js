@@ -433,11 +433,12 @@
 // :::::::::::::::::::: Are you playing Bnago ?::::::::::::::::::::::::::::::::::
 
 function plaYing(name) {
-  if (name[0]== 'R'|| name[0]== 'r' ) {
-    return name + ' play Bango'
+  // if (name[0]== 'R'|| name[0]== 'r' ) {
+  //   return name + ' plays Bango'
     
-  }
-  return name + ' does not play bango'
+  // }
+  // return name + ' does not play bango'
+  return  name[0]== 'R'|| name[0]== 'r' ? name + ' plays Bango' : name + ' does not play bango'
   
 }
 
