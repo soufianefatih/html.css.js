@@ -345,6 +345,8 @@ filter: grayscale(0);
 
   }
 
+
+  
   /* media queries */
   @media (max-width:768PX) {
     html {
