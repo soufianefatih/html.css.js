@@ -407,3 +407,12 @@ return words.join(" ")
 }
 console.log(smach(["hello","world"]));
 
+
+// :::::::::::::::::::: Do i get a bonus? :::::::::::::::::
+
+function bonusTime(salary, bonus) {
+
+  return bonus ? salary*10 + " £" : 'did not make enough mony ' + salary
+}
+
+console.log(bonusTime(20,false));
