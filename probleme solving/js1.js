@@ -352,9 +352,9 @@
 
 // console.log(result);
 
-const array = "123"
-const result = array.indexOf(3)
-console.log('result',result);
+// const array = "123"
+// const result = array.indexOf(3)
+// console.log('result',result);
 
 
 // ///////////////////////////////////////// welcome //////////////////////////////
@@ -421,10 +421,24 @@ console.log('result',result);
 // :::::::::::::::::::: Exclamation marks remove ::::::::::::::::::::::::::::::::::
 
 
-function remove(string) {
+// function remove(string) {
    
-return string.replace(/!$/, "")
+// return string.replace(/!$/, "")
+  
+// }
+
+// console.log(remove("AZ!"));
+
+
+// :::::::::::::::::::: Are you playing Bnago ?::::::::::::::::::::::::::::::::::
+
+function plaYing(name) {
+  if (name[0]== 'R'|| name[0]== 'r' ) {
+    return name + ' play Bango'
+    
+  }
+  return name + ' does not play bango'
   
 }
 
-console.log(remove("AZ!"));
+console.log(plaYing('aab'));
