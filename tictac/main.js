@@ -94,8 +94,12 @@ function checkWin(player) {
             if (combo.every(items => player.played.includes(items))) {
               player.score ++ 
               showScore() 
-              document.getElementById("overlay").style.display = 'flex'
-              messageContent.innerHTML = player.symbol + "is the <h2>Winner</h2>"
+              
+              setTimeout(() => {
+                document.getElementById("overlay").style.display = 'flex'
+                  messageContent.innerHTML = player.symbol + " is the <h2>Winner</h2>"
+              }, 500)
+              
               reset()
             }
         })
@@ -105,6 +109,10 @@ function checkWin(player) {
     if (!winner && usedCells.length == 9) {
         ties ++
         showScore()
+        setTimeout(() => {
+            document.getElementById("overlay").style.display = 'flex'
+              messageContent.innerHTML =  " is  <h2>Draw</h2>"
+          }, 500)     
         
     }
 }
@@ -170,3 +178,5 @@ closeBtn.addEventListener('click',()=>{
     document.getElementById("overlay").style.display = 'none'
 
 })
+
+
