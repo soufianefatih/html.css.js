@@ -109,6 +109,7 @@ function checkWin(player) {
     if (!winner && usedCells.length == 9) {
         ties ++
         showScore()
+        
         setTimeout(() => {
             document.getElementById("overlay").style.display = 'flex'
               messageContent.innerHTML =  " is  <h2>Draw</h2>"
