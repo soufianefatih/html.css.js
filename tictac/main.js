@@ -7,6 +7,11 @@ let turn = true
 const player1score = document.querySelector('.score1')
 const player2score = document.querySelector('.score2')
 const draw = document.querySelector('.draw')
+// message win or draw
+const messageContent = document.querySelector('.content')
+// close button
+const closeBtn = document.querySelector('#close')
+
 
 // turn player
 const currentTurn = document.querySelector('.current-turn')
@@ -51,13 +56,13 @@ for (let i = 0; i < 9; i++) {
         if (isEmpty(i)) {
             if (turn) {
                 addSymbol(player1,i)
-                checkWin(player1)
                 turn= false
+                checkWin(player1)
                 checkTurn()
             }else{
               addSymbol(player2,i)
-              checkWin(player2)
               turn = true
+              checkWin(player2)
               checkTurn()
             }  
             
@@ -87,9 +92,11 @@ function checkWin(player) {
     if (!winner) {
         winCombos.some(combo => {
             if (combo.every(items => player.played.includes(items))) {
-              alert('winners') 
               player.score ++ 
               showScore() 
+              document.getElementById("overlay").style.display = 'flex'
+              messageContent.innerHTML = player.symbol + "is the <h2>Winner</h2>"
+              reset()
             }
         })
         
@@ -155,3 +162,11 @@ function showScore() {
 
     
 }
+
+
+// close message win
+
+closeBtn.addEventListener('click',()=>{
+    document.getElementById("overlay").style.display = 'none'
+
+})
