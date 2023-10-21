@@ -344,6 +344,109 @@ filter: grayscale(0);
 
   }
 
+  .course .box-container {
+    width: 75%;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    padding-top: 4rem;
+    flex-wrap: wrap;
+  } 
+
+
+  
+  .course .box-container .box {
+    height: 18rem;
+    width: 25rem;
+    margin: 3.5rem 2rem;
+    text-align: center;
+    box-shadow: .3rem .3rem 0 .1rem var(--violet) ,
+                .5rem .5rem .5rem rgba(0, 0,0, .3)
+
+  }
+
+  .course .box-container .box i{
+    height: 10rem;
+    width: 10rem;
+    line-height: 8rem;
+    text-align: center;
+    color: #fff;
+    border-radius: 50%;
+    background: var(--pink);
+    margin-top: -4rem;
+    border: 1rem solid #fff;
+    border-left: 1rem solid var(--pink);
+    border-right: 1rem solid var(--pink);
+    box-shadow: 0 0 0 1rem #fff inset;
+    font-size: 3.5rem;
+
+  }
+
+  .course .box-container .box h3{
+    font-size: 2rem;
+   color: var(--violet);
+  }
+  
+  .course .box-container .box p {
+    font-size: 1.5rem;
+    color: #999;
+    padding:1rem .9rem;
+  }
+  .review {
+    background: #f9f9f9;
+    min-height: 100vh;
+
+  }
+  .review .box-container{
+    display: flex;
+    justify-content: center;
+    padding-top: 4rem;
+    flex-wrap: wrap;
+    width: 75%;
+    margin: 0 auto;
+
+  }
+  .review .box-container .box {
+     width: 28rem;
+     padding-bottom: 1rem;
+     text-align: center;
+     box-shadow: 0 .3rem .5rem rgba(0, 0,0, .3);
+     background: #fff;
+     margin: 4rem 2rem;
+  }
+
+  .review .box-container .box img{
+    width: 8.5rem;
+    height: 8.5rem;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-top: -4rem ;
+    border: .6rem solid var(--pink);
+    border-left: .6rem solid var(--pink);
+    border-bottom: .6rem solid var(--violet);
+
+  }
+
+  .review .box-container .box h3{
+    font-size: 2rem;
+    color: var(--pink);
+    padding: 0 .5rem;
+  }
+
+  .review .box-container .box p {
+    font-size: 1.4rem;
+    color: #999;
+    padding: 0 1.3rem ;
+
+  }
+  .review .box-container .box .stars i {
+    font-size: 1.6rem;
+    color: var(--violet);
+    padding: 1.3rem .1rem;
+  }
+
+
+
   /* media queries */
   @media (max-width:768PX) {
     html {
@@ -404,6 +507,9 @@ filter: grayscale(0);
     .about .row .content { 
       padding: 0 2.5rem;
     }  
+    .course .box-container {
+      width: 100%;
+    }
 
   }
  
