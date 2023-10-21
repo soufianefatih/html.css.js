@@ -505,6 +505,44 @@ filter: grayscale(0);
 
   }
 
+  .footer {
+    text-align: center;
+  }
+  .footer .icons {
+    padding: 3rem 0;
+  }
+
+  .footer .icons a{
+    height: 4.5rem;
+    width: 4.5rem;
+    line-height: 4.2rem;
+    border-radius: 50%;
+    color: var(--pink);
+    border: .2rem solid var(--pink);
+    font-size: 2rem;
+    transition: .2s linear;
+    margin: 0 .1rem;
+  }
+  .footer .icons a:hover {
+    color: #fff;
+    background: var(--violet);
+    border-color: var(--violet);
+      
+  }
+  .footer .credit {
+    font-size: 2rem;
+    border-top: .1rem solid #999;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+    color: #666;
+    width: 90%;
+    padding: 1rem 0;
+
+  }
+  .footer .credit span {
+    color: var(--violet);
+  }
+
 
   /* media queries */
   @media (max-width:768PX) {
