@@ -3,6 +3,11 @@ let cells = document.querySelectorAll('.cell')
 // reset buton
 const resetBtn = document.querySelector('.reset')
 let turn = true
+// button score
+const player1score = document.querySelector('.score1')
+const player2score = document.querySelector('.score2')
+const draw = document.querySelector('.draw')
+
 // turn player
 const currentTurn = document.querySelector('.current-turn')
 //  layers
@@ -32,6 +37,9 @@ const winCombos = [
 
 // variable to check if the cell is empty
 let usedCells = []
+
+let winner = false
+let ties = 0
 
 
 checkTurn()
@@ -74,11 +82,24 @@ function addSymbol(player,i) {
 // check win o or x
 
 function checkWin(player) {
-    winCombos.some(combo => {
-        if (combo.every(items => player.played.includes(items))) {
-          alert('winners')   
-        }
-    })
+
+
+    if (!winner) {
+        winCombos.some(combo => {
+            if (combo.every(items => player.played.includes(items))) {
+              alert('winners') 
+              player.score ++ 
+              showScore() 
+            }
+        })
+        
+    }
+    
+    if (!winner && usedCells.length == 9) {
+        ties ++
+        showScore()
+        
+    }
 }
 
 
@@ -105,6 +126,7 @@ function reset() {
     player1.played= []
     player2.played = []
     turn = true
+    checkTurn()
 }
 
 resetBtn.addEventListener('click',reset)
@@ -121,4 +143,15 @@ function checkTurn() {
         currentTurn.innerHTML = player2.symbol
 
     }
+}
+
+
+// FUNCTION SHOW score player
+
+function showScore() {
+    player1score.innerHTML = player1.score;
+    player2score.innerHTML = player2.score;
+    draw.innerHTML= ties
+
+    
 }
