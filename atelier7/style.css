@@ -2,6 +2,7 @@
 
 :root{
     --green:#0d9979;
+    --white :#d1cfcf;
 }
 
 *{
@@ -71,7 +72,7 @@ header .fa-bars{
     display: flex;
     align-items: center;
     justify-content: center;
-    background: url(images/bg.jpg) no-repeat;
+    background:linear-gradient(rgba(133, 235, 143, 0.216),rgb(18, 4, 4)), url(images/bg.jpg) no-repeat;
     background-size: cover;
     background-position: center;
 }
@@ -84,12 +85,12 @@ header .fa-bars{
 
 .home .content h1{
     font-size: 7rem;
-    color:var(--green);
+    color:var(--white);
 }
 
 .home .content p{
     font-size: 1.9rem;
-    color: #333;;
+    color: var(--white);
     padding:1rem 0;
     width: 70rem;
 }
