@@ -445,7 +445,7 @@
 // :::::::::::::::::::: Remove second element::::::::::::::::::::::::::::::::::
 
 
-function remove(array) {
+// function remove(ar  ray) {
   // let newArray = []
   // for (let i = 0; i < array.length; i++) {
   //      if (i % 2 === 0) {
@@ -454,10 +454,22 @@ function remove(array) {
   //      }   
   // }
   // return newArray
-  return array.filter((a,b)=> b % 2 == 0)
+//   return array.filter((a,b)=> b % 2 == 0)
   
+// }
+
+// console.log(remove(['a','b','c','d']));
+
+
+// :::::::::::::::::::::::::::::::::::: unfinished loop :::::::::::::::::::::::::::
+
+
+function createArray(number) {
+  var newArray = []
+  for (let i = 1; i <= number;i ++) {
+     newArray.push(i)    
+  }
+  return newArray
 }
 
-console.log(remove(['a','b','c','d']));
-
-
+console.log(createArray(5));
