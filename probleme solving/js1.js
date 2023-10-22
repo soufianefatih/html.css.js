@@ -478,14 +478,28 @@
 // :::::::::::::::::::::::::::::::::::: Transporation on vacation :::::::::::::::::::::::::::
 
 
-function rental(d) {
-  let price = 40*d
-   if(d<3) return price
-   if (d>= 7) {
-    return price -50
+// function rental(d) {
+//   let price = 40*d
+//    if(d<3) return price
+//    if (d>= 7) {
+//     return price -50
     
-   }else{
-    return price - 20
-   }
+//    }else{
+//     return price - 20
+//    }
 
+// }
+
+// :::::::::::::::::::::::::::::::::::: Exlusive or (xor) :::::::::::::::::::::::::::
+
+
+function xor(a,b) {
+  if ((a == false && b == false) || (a == true && b == true)) {
+    return false 
+  }else {
+    return true
+  }
+  
 }
+
+console.log(xor(true,false));
