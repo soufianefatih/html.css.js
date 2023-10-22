@@ -499,6 +499,7 @@ function xor(a,b) {
   }else {
     return true
   }
+  return a=== b ? false : true
   
 }
 
