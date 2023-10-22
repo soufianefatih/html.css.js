@@ -464,12 +464,22 @@
 // :::::::::::::::::::::::::::::::::::: unfinished loop :::::::::::::::::::::::::::
 
 
-function createArray(number) {
-  var newArray = []
-  for (let i = 1; i <= number;i ++) {
-     newArray.push(i)    
-  }
-  return newArray
-}
+// function createArray(number) {
+//   var newArray = []
+//   for (let i = 1; i <= number;i ++) {
+//      newArray.push(i)    
+//   }
+//   return newArray
+// }
 
-console.log(createArray(5));
+// console.log(createArray(5));
+
+
+// :::::::::::::::::::::::::::::::::::: Transporation on vacation :::::::::::::::::::::::::::
+
+
+function rental(d) {
+  let price = 40*d
+   if(d<3) return price
+    
+}
