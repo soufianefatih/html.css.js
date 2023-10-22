@@ -493,14 +493,14 @@
 // :::::::::::::::::::::::::::::::::::: Exlusive or (xor) :::::::::::::::::::::::::::
 
 
-function xor(a,b) {
-  if ((a == false && b == false) || (a == true && b == true)) {
-    return false 
-  }else {
-    return true
-  }
-  return a=== b ? false : true
+// function xor(a,b) {
+//   if ((a == false && b == false) || (a == true && b == true)) {
+//     return false 
+//   }else {
+//     return true
+//   }
+//   return a=== b ? false : true
   
-}
+// }
 
-console.log(xor(true,false));
+// console.log(xor(true,false));
