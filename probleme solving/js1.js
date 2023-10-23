@@ -504,3 +504,24 @@
 // }
 
 // console.log(xor(true,false));
+
+
+// :::::::::::::::::::::::::::::::::::: getMax :::::::::::::::::::::::::::
+
+
+function getMax(a, b, c) {
+  
+  max = 0;
+  if (a > b){
+    max = a;
+  } 
+  else{
+    max = b;
+  }
+  if (c > max){
+    max = c;
+  }
+  return max;
+}
+
+console.log(getMax(1,6,9));
