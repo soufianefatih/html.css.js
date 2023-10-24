@@ -563,8 +563,19 @@
 
 // :::::::::::::::::::::::::::::::::::: amount :::::::::::::::::::::::::::
 
-function forMat(amount) {
-  return `$ ${amount.toFixed(2)}`
+// function forMat(amount) {
+//   return `$ ${amount.toFixed(2)}`
+// }
+
+// console.log(forMat(2.51));
+
+
+
+// :::::::::::::::::::::::::::::::::::: findAplpha  lettre :::::::::::::::::::::::::::
+
+function findAplpha(lettre) {
+  const alpha = "abcdefghijklmnopqrstuvwxyz"
+  return alpha.indexOf(lettre) +1
 }
 
-console.log(forMat(2.51));
+console.log(findAplpha('b'));
