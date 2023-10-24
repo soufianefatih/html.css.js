@@ -155,6 +155,40 @@ header .fa-bars{
 }
 
 
+.about .row{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.about .row .image{
+    flex:1 1 40rem;
+    padding:2rem;
+}
+
+.about .row .image img{
+    width: 100%;
+}
+
+.about .row .content{
+    flex:1 1 40rem;
+    padding:2rem;
+}
+
+.about .row .content h3{
+    font-size: 3rem;
+    color:var(--green);
+}
+
+.about .row .content p{
+    font-size: 1.5rem;
+    color:#666;
+    padding:1rem 0;
+}
+
+
+
 
 /* media queries  */
 
