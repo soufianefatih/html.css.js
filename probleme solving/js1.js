@@ -662,15 +662,15 @@
 
 // :::::::::::::::::::::::::::::::::::: size string  :::::::::::::::::::::::::::
 
-function size(str,n=0) {
+// function size(str,n=0) {
 
-  if(str[n] === undefined) {
-    return n
-  }
-  console.log(str, n + 1);
- return size(str, n + 1)
+//   if(str[n] === undefined) {
+//     return n
+//   }
+//   console.log(str, n + 1);
+//  return size(str, n + 1)
 
-//  return str.length 
-}
+// //  return str.length 
+// }
 
-console.log(size("kk"));
+// console.log(size("kk"));
