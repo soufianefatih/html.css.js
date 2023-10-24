@@ -337,7 +337,7 @@
 // console.log(count(10));
 
 // ///////////////////////////////////////// exemple qiuz//////////////////////////////
-// const array = [1,2,3]
+// const array = [1,2,6]
 // const result = array[2]
 // console.log(result);
 
@@ -630,19 +630,31 @@
 
 
 
-function reverseTab(tab) {
-  let newTab = []
+// function reverseTab(tab) {
+//   let newTab = []
   
-  for(let i = tab.length - 1; i >= 0; i--) {
+//   for(let i = tab.length - 1; i >= 0; i--) {
 
-    newTab.push(tab[i])
-    console.log(tab[i]);
-}
-console.log('length',tab.length);
-return newTab
+//     newTab.push(tab[i])
+//     console.log(tab[i]);
+// }
+// console.log('length',tab.length);
+// return newTab
 
+// }
+
+// // Afficher la sortie
+// console.log(reverseTab([1, 2, 3]));
+// // console.log(reverseTab([1, 1, 2, 2, 3]));
+
+// :::::::::::::::::::::::::::::::::::: last index array  :::::::::::::::::::::::::::
+
+
+function getLastElem(tab) {
+  console.log(tab.length);
+  return tab[tab.length -1]
 }
 
 // Afficher la sortie
-console.log(reverseTab([1, 2, 3]));
-// console.log(reverseTab([1, 1, 2, 2, 3]));
+console.log(getLastElem([1, 2, 3, 4]));
+// console.log(getLastElem(["Alex", "Bob", "Emily"]));
