@@ -604,23 +604,43 @@
 // ::::::::::::::::::::::::::::::::::::Return true si a+b > 100  :::::::::::::::::::::::::::
 
 
-function check(a, b) {
+// function check(a, b) {
 
-  // return a+b>100 ? false : true
-return a+b < 100 
-}
+//   // return a+b>100 ? false : true
+// return a+b < 100 
+// }
 
-// Afficher la sortie
-console.log(check(5, 20));
-console.log(check(60, 55));
+// // Afficher la sortie
+// console.log(check(5, 20));
+// console.log(check(60, 55));
 
 // :::::::::::::::::::::::::::::::::::: convertit les heures en seconde  :::::::::::::::::::::::::::
 
 
-function heureSeconde(heure) {
-return heure*3600
+// function heureSeconde(heure) {
+// return heure*3600
+// }
+
+// // Afficher la sortie
+// console.log(heureSeconde(1));
+// console.log(heureSeconde(5));
+
+
+// :::::::::::::::::::::::::::::::::::: reverseArray :::::::::::::::::::::::::::
+
+
+
+function reverseTab(tab) {
+  let newTab = []
+  
+  for(let i = tab.length - 1; i >= 0; i--) {
+
+    newTab.push(tab[i])
+}
+return newTab
+
 }
 
 // Afficher la sortie
-console.log(heureSeconde(1));
-console.log(heureSeconde(5));
+console.log(reverseTab([1, 2, 3]));
+console.log(reverseTab([1, 1, 2, 2, 3]));
