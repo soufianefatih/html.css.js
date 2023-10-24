@@ -584,9 +584,31 @@
 // :::::::::::::::::::::::::::::::::::: Opposites attract  :::::::::::::::::::::::::::
 
 
-function opposite(fl1, fl2) {
+// function opposite(fl1, fl2) {
 
-return  fl1 % 2 == fl2 % 2 ?  'not love ' + false : 'love ' + true
+// return  fl1 % 2 == fl2 % 2 ?  'not love ' + false : 'love ' + true
   
+// }
+// console.log(opposite(101,166));
+
+
+// ::::::::::::::::::::::::::::::::::::No Zeros For Heros  :::::::::::::::::::::::::::
+
+
+
+// function noZiro(n) {
+  
+// }
+
+ 
+// ::::::::::::::::::::::::::::::::::::Return true si a+b > 100  :::::::::::::::::::::::::::
+
+
+function check(a, b) {
+
+  return a+b>100 ? false : true
 }
-console.log(opposite(101,166));
+
+// Afficher la sortie
+console.log(check(5, 20));
+console.log(check(60, 55));
