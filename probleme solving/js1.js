@@ -543,12 +543,20 @@
 // :::::::::::::::::::::::::::::::::::: volume of cuboid :::::::::::::::::::::::::::
 
 
-class Kata {
+// class Kata {
 
-  static getVolume(length , width , height){
-    return length*width*height
-  }
+//   static getVolume(length , width , height){
+//     return length*width*height
+//   }
+// }
+
+
+// console.log(Kata.getVolume(1,2,2));
+
+// :::::::::::::::::::::::::::::::::::: FIXED NUMBER FLOAT :::::::::::::::::::::::::::
+
+function fixed(n) {
+  return n.toFixed(2)
+  
 }
-
-
-console.log(Kata.getVolume(1,2,2));
+console.log(fixed(12.2370));
