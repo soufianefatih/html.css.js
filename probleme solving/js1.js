@@ -585,11 +585,8 @@
 
 
 function opposite(fl1, fl2) {
-  if (fl1 % 2 == fl2 % 2) {
-    return 'not love ' + false
-  }
-  return 'love ' + true
-  
+
+return  fl1 % 2 == fl2 % 2 ?  'not love ' + false : 'love ' + true
   
 }
-console.log(opposite(3,10));
+console.log(opposite(101,166));
