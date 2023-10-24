@@ -573,9 +573,22 @@
 
 // :::::::::::::::::::::::::::::::::::: findAplpha  lettre :::::::::::::::::::::::::::
 
-function findAplpha(lettre) {
-  const alpha = "abcdefghijklmnopqrstuvwxyz"
-  return alpha.indexOf(lettre) +1
-}
+// function findAplpha(lettre) {
+//   const alpha = "abcdefghijklmnopqrstuvwxyz"
+//   return alpha.indexOf(lettre) +1
+// }
 
-console.log(findAplpha('b'));
+// console.log(findAplpha('z'));
+
+
+// :::::::::::::::::::::::::::::::::::: Opposites attract  :::::::::::::::::::::::::::
+
+
+function opposite(fl1, fl2) {
+  if (fl1 % 2 == fl2 % 2) {
+    return 'not love '
+  }
+  return 'love'
+  
+}
+console.log(opposite(3,10));
