@@ -650,11 +650,27 @@
 // :::::::::::::::::::::::::::::::::::: last index array  :::::::::::::::::::::::::::
 
 
-function getLastElem(tab) {
-  console.log(tab.length);
-  return tab[tab.length -1]
+// function getLastElem(tab) {
+//   console.log(tab.length);
+//   return tab[tab.length -1]
+// }
+
+// // Afficher la sortie
+// console.log(getLastElem([1, 2, 3, 4]));
+// console.log(getLastElem(["Alex", "Bob", "Emily"]));
+
+
+// :::::::::::::::::::::::::::::::::::: size string  :::::::::::::::::::::::::::
+
+function size(str,n=0) {
+
+  if(str[n] === undefined) {
+    return n
+  }
+  console.log(str, n + 1);
+ return size(str, n + 1)
+
+//  return str.length 
 }
 
-// Afficher la sortie
-console.log(getLastElem([1, 2, 3, 4]));
-// console.log(getLastElem(["Alex", "Bob", "Emily"]));
+console.log(size("kk"));
