@@ -606,7 +606,8 @@
 
 function check(a, b) {
 
-  return a+b>100 ? false : true
+  // return a+b>100 ? false : true
+return a+b < 100 
 }
 
 // Afficher la sortie
