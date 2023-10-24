@@ -509,19 +509,33 @@
 // :::::::::::::::::::::::::::::::::::: getMax :::::::::::::::::::::::::::
 
 
-function getMax(a, b, c) {
+// function getMax(a, b, c) {
   
-  max = 0;
-  if (a > b){
-    max = a;
-  } 
-  else{
-    max = b;
+//   max = 0;
+//   if (a > b){
+//     max = a;
+//   } 
+//   else{
+//     max = b;
+//   }
+//   if (c > max){
+//     max = c;
+//   }
+//   return max;
+// }
+
+// console.log(getMax(1,6,9));
+
+// :::::::::::::::::::::::::::::::::::: Find the consecutive number :::::::::::::::::::::::::::
+
+function find(array) {
+  
+  for (let i = 1; i < array.length; i++) {
+   if(array[i] - 1 !== array[i-1]) return array[i]
+    console.log(array[i] - 1);
+    console.log( array[i-1]);
   }
-  if (c > max){
-    max = c;
-  }
-  return max;
+  return null
 }
 
-console.log(getMax(1,6,9));
+console.log(find([1,2,3,4,5,6]));
