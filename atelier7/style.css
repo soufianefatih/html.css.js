@@ -141,6 +141,19 @@ header .fa-bars{
     color:#fff;
 }
 
+.heading{
+    text-align: center;
+    font-size: 4rem;
+    color:#555;
+    padding:1rem;
+    padding-top: 7rem;
+}
+
+.heading i{
+    color:var(--green);
+    font-size: 2rem;
+}
+
 
 
 /* media queries  */
