@@ -555,8 +555,16 @@
 
 // :::::::::::::::::::::::::::::::::::: FIXED NUMBER FLOAT :::::::::::::::::::::::::::
 
-function fixed(n) {
-  return n.toFixed(2)
+// function fixed(n) {
+//   return n.toFixed(2)
   
+// }
+// console.log(fixed(12.2370));
+
+// :::::::::::::::::::::::::::::::::::: amount :::::::::::::::::::::::::::
+
+function forMat(amount) {
+  return `$ ${amount.toFixed(2)}`
 }
-console.log(fixed(12.2370));
+
+console.log(forMat(2.51));
