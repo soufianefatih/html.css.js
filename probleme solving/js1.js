@@ -528,14 +528,27 @@
 
 // :::::::::::::::::::::::::::::::::::: Find the consecutive number :::::::::::::::::::::::::::
 
-function find(array) {
+// function find(array) {
   
-  for (let i = 1; i < array.length; i++) {
-   if(array[i] - 1 !== array[i-1]) return array[i]
-    console.log(array[i] - 1);
-    console.log( array[i-1]);
+//   for (let i = 1; i < array.length; i++) {
+//    if(array[i ] - 1 !== array[i-1]) return array[i]
+//     console.log(array[i] - 1);
+//     console.log( array[i-1]);
+//   }
+//   return null
+// }
+
+// console.log(find([1,2,3,4,5,7]));
+
+// :::::::::::::::::::::::::::::::::::: volume of cuboid :::::::::::::::::::::::::::
+
+
+class Kata {
+
+  static getVolume(length , width , height){
+    return length*width*height
   }
-  return null
 }
 
-console.log(find([1,2,3,4,5,6]));
+
+console.log(Kata.getVolume(1,2,2));
