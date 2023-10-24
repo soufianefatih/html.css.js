@@ -613,3 +613,14 @@ return a+b < 100
 // Afficher la sortie
 console.log(check(5, 20));
 console.log(check(60, 55));
+
+// :::::::::::::::::::::::::::::::::::: convertit les heures en seconde  :::::::::::::::::::::::::::
+
+
+function heureSeconde(heure) {
+return heure*3600
+}
+
+// Afficher la sortie
+console.log(heureSeconde(1));
+console.log(heureSeconde(5));
