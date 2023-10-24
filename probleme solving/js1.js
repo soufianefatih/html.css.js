@@ -586,9 +586,10 @@
 
 function opposite(fl1, fl2) {
   if (fl1 % 2 == fl2 % 2) {
-    return 'not love '
+    return 'not love ' + false
   }
-  return 'love'
+  return 'love ' + true
+  
   
 }
 console.log(opposite(3,10));
