@@ -636,11 +636,13 @@ function reverseTab(tab) {
   for(let i = tab.length - 1; i >= 0; i--) {
 
     newTab.push(tab[i])
+    console.log(tab[i]);
 }
+console.log('length',tab.length);
 return newTab
 
 }
 
 // Afficher la sortie
 console.log(reverseTab([1, 2, 3]));
-console.log(reverseTab([1, 1, 2, 2, 3]));
+// console.log(reverseTab([1, 1, 2, 2, 3]));
