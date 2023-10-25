@@ -330,5 +330,8 @@ header .fa-bars{
     .home .content p{
         width: auto;
     }
+    .service .box-container{
+        width: auto;
+    }
 
 }
