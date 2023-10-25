@@ -257,6 +257,19 @@ header .fa-bars{
     padding:1rem 0;
 }
 
+.service .box-container .box a{
+    color:#333;
+    font-size: 1.7rem;
+}
+
+.service .box-container .box a:hover{
+    color:var(--green);
+}
+
+.service .box-container .box:hover{
+    box-shadow: 0 .3rem .5rem rgba(0,0,0,.3);
+}
+
 
 
 
