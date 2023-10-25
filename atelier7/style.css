@@ -217,6 +217,11 @@ header .fa-bars{
     color:#666;
     font-size: 1.7rem;
 }
+.service{
+    background:#f0f0f0;
+    min-height: 100vh;
+}
+
 
 
 
