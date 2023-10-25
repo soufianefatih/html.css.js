@@ -222,6 +222,16 @@ header .fa-bars{
     min-height: 100vh;
 }
 
+.service .box-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 80%;
+    margin:0 auto;
+}
+
+
 
 
 
