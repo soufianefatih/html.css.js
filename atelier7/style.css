@@ -251,6 +251,12 @@ header .fa-bars{
     font-size: 2rem;
 }
 
+.service .box-container .box p{
+    color: #666;
+    font-size: 1.5rem;
+    padding:1rem 0;
+}
+
 
 
 
