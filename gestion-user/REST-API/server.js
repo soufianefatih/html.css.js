@@ -1,9 +1,5 @@
 const express = require('express');
 const app = express ();
-require('./model/index');
-
-
-
 const bodyParser = require("body-parser");
 const cors = require('cors')
 
@@ -19,16 +15,7 @@ const cors = require('cors')
     
 
 
-//* Require Routes
-const authRoutes = require("./route/auth");
 
-const userRoutes = require("./route/user");
-
-
-
-//* Register Our Routes
-
-  app.use("/api/location/users",userRoutes);
 
 
   
