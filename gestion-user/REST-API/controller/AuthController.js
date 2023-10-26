@@ -21,7 +21,7 @@ const register = async (req, res, next) => {
     email,
     password,
   });
-
+   console.log('result: ' ,result);
   res.status(201).json(result);
 };
 
