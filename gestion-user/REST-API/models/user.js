@@ -21,15 +21,7 @@ const userSchema = new Schema(
       type: String,
       required: [true, "Password is required"],
     },
-    theme: {
-      type: String,
-      enum: [...themes],
-      default: themes[1],
-    },
-    avatarURL: {
-      type: String,
-      default: "",
-    },
+ 
     accessToken: {
       type: String,
       default: null,
