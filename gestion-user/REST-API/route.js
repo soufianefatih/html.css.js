@@ -21,22 +21,15 @@ const cors = require('cors')
 
 //* Require Routes
 const authRoutes = require("./route/auth");
-const agenceRoutes = require("./route/agence");
-const categoryRoutes = require("./route/category");
-const carsRoutes = require("./route/cars");
+
 const userRoutes = require("./route/user");
-const bookingRoutes = require("./route/booking");
-const reviewRoutes = require("./route/review");
+
 
 
 //* Register Our Routes
-  app.use("/api/location/", authRoutes);
-  app.use("/api/location/agence", agenceRoutes);
-  app.use("/api/location/category", categoryRoutes);
-  app.use("/api/location/cars", carsRoutes);
+
   app.use("/api/location/users",userRoutes);
-  app.use("/api/location/booking",bookingRoutes);
-  app.use("/api/location/review",reviewRoutes);
+
 
   
 
