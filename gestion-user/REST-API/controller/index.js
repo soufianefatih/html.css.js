@@ -1,8 +1,6 @@
-const { ctrlWrapper } = require("../decorators");
-
-const register = require("./register");
+const ctrlAuth = require("./auth");
 
 module.exports = {
-  register: ctrlWrapper(register),
- 
+  ctrlAuth,
+
 };

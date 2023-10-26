@@ -1,8 +1,8 @@
-const { User } = require("../models");
+const { User } = require("../../models");
 const { authSchema } = require("../../schemas");
-const { HttpError, BadRequestError } = require("../helpers");
+const { HttpError, BadRequestError } = require("../../helpers");
 
-const register = async (req, res, next) => {
+const register = async (req, res) => {
   const { value, error } = authSchema.registerSchema.validate(req.body, {
     abortEarly: false,
   });
@@ -21,7 +21,7 @@ const register = async (req, res, next) => {
     email,
     password,
   });
-   console.log('result: ' ,result);
+
   res.status(201).json(result);
 };
 
