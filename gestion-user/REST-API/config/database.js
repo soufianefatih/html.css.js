@@ -1,11 +1,25 @@
-const Sequelize = require('sequelize')
-const configdb = require('./config')['database']
+const mongoose = require('mongoose');
+require("dotenv").config();
 
 
-module.exports = new Sequelize(
-    configdb.database,
-    configdb.username,
-    configdb.password,
-    configdb
-)
+const { DB_CONNECT } = process.env;
 
+const connectToMongo = async () => {
+    await mongoose.connect(DB_CONNECT);
+    console.log("Connected to MongoDB");
+  };
+
+
+module.exports = connectToMongo
+
+
+
+// .then(() => {
+//     app.listen(PORT);
+//     console.log("Server started at port " + PORT);
+//   })
+//   .catch((error) => {
+//     console.log(error.message);
+//     process.exit(1);
+//   });
+  
