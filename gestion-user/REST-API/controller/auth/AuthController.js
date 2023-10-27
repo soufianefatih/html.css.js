@@ -7,6 +7,8 @@ const register = async (req, res) => {
   const { value, error } = authSchema.registerSchema.validate(req.body, {
     abortEarly: false,
   });
+  
+try{ 
   console.log('value',{ value, error });
   console.log('body',req.body);
 
@@ -16,24 +18,28 @@ const register = async (req, res) => {
 
   const userEmail = await User.findOne({ email });
   if (userEmail) {
-    throw HttpError(409, "Email has already in use");
+    // throw HttpError(409, "Email has already in use");
+    res.json( 409, {
+      message:"Email has already in use",
+
+    });
+
   }
-
-  const result = await User.create({
-    name,
-    email,
-    password,
-  });
-
+  
+    const result = await User.create({
+      name,
+      email,
+      password,
+    });
+  
       res.status(201).json(result);
-      if(error) {
-      //  res.writeHead(500, {'Content-Type': 'application/json'});
-        res.write('{error: "' + error + '"}');
-        res.end();
-        console.log('errror', error);
-      }
+   } catch (errr) {
+        res.json(400,{ message: error });
+        console.log('error',error);
 
- 
+   }
+
+  
 };
 
 
