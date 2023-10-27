@@ -2,7 +2,7 @@ const { User } = require("../../models");
 const { authSchema } = require("../../schemas");
 const { HttpError, BadRequestError } = require("../../helpers");
 
-const login = async (req, res, next) => {
+const login = async (req, res) => {
   const { value, error } = authSchema.loginSchema.validate(req.body, {
     abortEarly: false,
   });
@@ -24,8 +24,6 @@ const login = async (req, res, next) => {
     user: {
       name: user.name,
       email: user.email,
-      theme: user.theme,
-      avatarURL: user.avatarURL,
     },
   });
 };

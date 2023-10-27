@@ -19,7 +19,7 @@ try{
   const userEmail = await User.findOne({ email });
   if (userEmail) {
     // throw HttpError(409, "Email has already in use");
-    res.json( 409, {
+    res.status(409).json({
       message:"Email has already in use",
 
     });
@@ -32,9 +32,9 @@ try{
     });
   
       res.status(201).json(result);
-   } catch (errr) {
+   } catch (err) {
 
-        res.json(400,{ message: error.details[0].message });
+        res.status(400).json({ message: error.details[0].message });
         console.log('error',error.details[0].message);
 
    }
