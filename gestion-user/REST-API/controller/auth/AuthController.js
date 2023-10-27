@@ -1,7 +1,6 @@
 const { User } = require("../../models");
 const { authSchema } = require("../../schemas");
 const { HttpError, BadRequestError } = require("../../helpers");
-const { message } = require("../../constants");
 
 const register = async (req, res) => {
 
@@ -26,7 +25,6 @@ try{
     });
 
   }
-  
     const result = await User.create({
       name,
       email,
@@ -35,8 +33,9 @@ try{
   
       res.status(201).json(result);
    } catch (errr) {
+
         res.json(400,{ message: error.details[0].message });
-        console.log('errorAAAAAAAAAAAAAAAAAAA',error.details[0].message);
+        console.log('error',error.details[0].message);
 
    }
 
