@@ -6,6 +6,8 @@ const { ctrlAuth} = require("../controller");
 const routerAuth = express.Router();
 
 routerAuth.post("/register", ctrlAuth.register);
+routerAuth.post("/login", ctrlAuth.login);
+
 
 
 module.exports = routerAuth;
