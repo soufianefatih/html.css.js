@@ -6,7 +6,9 @@ const BadRequestError = (error, req, res, next) => {
       .map((detail) => detail.message)
       .join(";   ");
     throw HttpError(400, errorMessage);
+
   }
+  next()
 };
 
 module.exports = BadRequestError;

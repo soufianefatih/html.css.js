@@ -1,6 +1,6 @@
 const { User } = require("../../models");
 const { authSchema } = require("../../schemas");
-const { HttpError, BadRequestError } = require("../../helpers");
+const { HttpError, BadRequestError,errorHandler } = require("../../helpers");
 
 const login = async (req, res) => {
   const { value, error } = authSchema.loginSchema.validate(req.body, {
@@ -10,10 +10,12 @@ const login = async (req, res) => {
 
   const { email, password } = value;
   const user = await User.findOne({ email });
-  if (!user) throw HttpError(401, "Email is wrong");
+  // if (!user) throw errorHandler(401, "Email is wrong");
+  if (!user) res.json(401,{message:'Email is wrong'})
 
   if (!user.comparePassword(password)) {
-    throw HttpError(401, "Password is wrong");
+    // throw HttpError(401, "Password is wrong");
+    res.json(401,{message:'Password is wrong'})
   }
 
   const accessToken = user.signToken();
