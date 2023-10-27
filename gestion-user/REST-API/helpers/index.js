@@ -4,7 +4,6 @@ const handleMongooseError = require("./handleMongooseError");
 const signToken = require("./signToken");
 const { hashPassword, hashedPassword } = require("./hashPassword");
 const comparePassword = require("./comparePassword"); 
-const errorHandler =require("./error"); 
 
 module.exports = {
   HttpError,
@@ -14,5 +13,4 @@ module.exports = {
   hashPassword,
   hashedPassword,
   comparePassword,
-  errorHandler,
 };

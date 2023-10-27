@@ -2,7 +2,7 @@ const { User } = require("../../models");
 const { authSchema } = require("../../schemas");
 const { HttpError, BadRequestError } = require("../../helpers");
 
-const register = async (req, res) => {
+const register = async (req, res,next) => {
 
   const { value, error } = authSchema.registerSchema.validate(req.body, {
     abortEarly: false,
@@ -17,14 +17,9 @@ try{
   if (error) BadRequestError(error);
 
   const userEmail = await User.findOne({ email });
-  if (userEmail) {
-    // throw HttpError(409, "Email has already in use");
-    res.status(409).json({
-      message:"Email has already in use",
-
-    });
-
-  }
+ 
+  if (userEmail) res.status(409).json({ message:"Email has already in use"});
+  
     const result = await User.create({
       name,
       email,

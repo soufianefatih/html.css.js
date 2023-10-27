@@ -1,6 +1,6 @@
 const { User } = require("../../models");
 const { authSchema } = require("../../schemas");
-const { HttpError, BadRequestError,errorHandler } = require("../../helpers");
+const { HttpError, BadRequestError} = require("../../helpers");
 
 const login = async (req, res) => {
   const { value, error } = authSchema.loginSchema.validate(req.body, {

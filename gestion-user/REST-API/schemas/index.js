@@ -1,4 +1,4 @@
-const authSchema = require("./schemaUser");
+const authSchema = require("./schemaAuth");
 
 
 module.exports = {
