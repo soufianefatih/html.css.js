@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 const cors = require('cors')
 
    app.use(cors())
-
+   app.use(express.json());
    app.use("/upload", express.static("./upload"));
 
    const {
@@ -19,6 +19,8 @@ const cors = require('cors')
      //* the will let us get data the data form post
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(bodyParser.json());
+
+
     
 
 

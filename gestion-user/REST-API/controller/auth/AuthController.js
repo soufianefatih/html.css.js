@@ -8,8 +8,9 @@ const register = async (req, res) => {
     abortEarly: false,
   });
   console.log('value',{ value, error });
+  console.log('body',req.body);
 
-  const { name, email, password } = data;
+  const { name, email, password } = value;
 
   if (error) BadRequestError(error);
 
@@ -31,6 +32,7 @@ const register = async (req, res) => {
 
 // const register = async (req, res) => {
 //   let data = req.body;
+//   console.log(data);
 
 //   const user = await User.create({
 //       'name': data.name,
