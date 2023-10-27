@@ -25,7 +25,15 @@ const register = async (req, res) => {
     password,
   });
 
-  res.status(201).json(result);
+      res.status(201).json(result);
+      if(error) {
+      //  res.writeHead(500, {'Content-Type': 'application/json'});
+        res.write('{error: "' + error + '"}');
+        res.end();
+        console.log('errror', error);
+      }
+
+ 
 };
 
 
