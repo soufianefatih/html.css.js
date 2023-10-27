@@ -1,11 +1,7 @@
-const isValidId = require("./isValidId");
-const validateBody = require("./validateBody");
+const userRole = require("./roleAuthorized");
 const isAuthorized = require("./isAuthorized");
-const upload = require("./upload");
 
 module.exports = {
-  isValidId,
-  validateBody,
   isAuthorized,
-  upload,
+  
 };
