@@ -12,18 +12,21 @@ try{
   console.log('value',{ value, error });
   console.log('body',req.body);
 
-  const { name, email, password } = value;
+  const { name, email, password,role } = value;
 
   if (error) BadRequestError(error);
 
   const userEmail = await User.findOne({ email });
  
   if (userEmail) res.status(409).json({ message:"Email has already in use"});
+  if(value.role == 'admin') res.status(400).json({message: 'this role is not available!'})
+
   
     const result = await User.create({
       name,
       email,
       password,
+      role ,
     });
   
       res.status(201).json(result);

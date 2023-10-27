@@ -1,17 +1,22 @@
 class Actions {
-  static setModel(model) {
-    this.model = model;
-    return this;
+  static setModel(model){
+      this.model = model
+      return this;
   }
 
   static filters(filters) {
-    this.data = this.model.findAll({ where:filters});
-    return this;
+      this.data = this.model.find(filters)
+      return this;
   }
 
-  static get() {
-    return this.data;
+  static sorts(sorts) {
+      this.data.sort(sorts);
+      return this;
+  }
+
+  static get(){
+      return this.data;
   }
 }
 
-module.exports = Actions;
+module.exports = Actions
