@@ -22,8 +22,7 @@ const userSchema = new Schema(
       required: [true, "Password is required"],
     },
     role: {
-      type: String,
-      required: [true, "Role is required"],
+      type: String
     },
  
     accessToken: {

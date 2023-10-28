@@ -29,7 +29,6 @@ const registerSchema = Joi.object({
       "string.pattern.base": message.passwordInvalid,
     }),
     role: Joi.string()
-    .required(),
 
 });
 

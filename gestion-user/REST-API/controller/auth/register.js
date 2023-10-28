@@ -2,17 +2,17 @@ const { User } = require("../../models");
 const { authSchema } = require("../../schemas");
 const { HttpError, BadRequestError } = require("../../helpers");
 
-const register = async (req, res,next) => {
-
+const registera = async (req, res,next) => {
+  let data = req.body;
   const { value, error } = authSchema.registerSchema.validate(req.body, {
     abortEarly: false,
   });
   
 try{ 
   console.log('value',{ value, error });
-  console.log('body',req.body);
+  console.log('body',data);
 
-  const { name, email, password,role } = value;
+  const { name, email, password,role} = value;
 
   if (error) BadRequestError(error);
 
@@ -42,23 +42,25 @@ try{
 
 
 
-// const register = async (req, res) => {
-//   let data = req.body;
-//   console.log(data);
+const register = async (req, res) => {
+  let data = req.body;
+  console.log(data);
+  if(value.role == 'admin') res.status(400).json({message: 'this role is not available!'})
 
-//   const user = await User.create({
-//       'name': data.name,
-//       'email': data.email,
-//       'password': data.password,
+  const user = await User.create({
+      'name': data.name,
+      'email': data.email,
+      'password': data.password,
+      'role':  data.role ? 'admin' : 'user',
       
-//   })
+  })
 
-//   try {
-//       res.json(user);
-//   } catch (error) {
-//       res.status(500).send(error);    
-//   }
-// }
+  try {
+      res.json(user);
+  } catch (error) {
+      res.status(500).send(error);    
+  }
+}
 
 
 module.exports = register;
