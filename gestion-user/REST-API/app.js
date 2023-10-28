@@ -12,7 +12,13 @@ const app= require('./server');
 const {  PORT } = process.env;
 
 
-  
+// console
+function ConsolLog(rep, res, next) {
+  console.log(" [" + rep["method"] + "] http://localhost:" + port + rep["url"]);
+
+  next();
+}
+
   
 const PORTS = PORT || 3030;
 
