@@ -15,7 +15,7 @@ try{
   // Set the role based on the condition (data.type)
      const data = req.body
       const role = data.type ? 'admin' : 'user';
-      
+
   if (error) BadRequestError(error);
 
   const userEmail = await User.findOne({ email });
