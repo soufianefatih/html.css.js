@@ -1,32 +1,28 @@
-const express = require('express');
-const app = express ();
-const bodyParser = require("body-parser");
-const cors = require('cors')
-
-   app.use(cors())
-   app.use(express.json());
-   app.use("/upload", express.static("./upload"));
-
-   const {
-    routerAuth,
-   
-  } = require("./routes");
-    
-  app.use("/api/users", routerAuth);
-
-    
-     
-     //* the will let us get data the data form post
-    app.use(bodyParser.urlencoded({ extended: true }));
-    app.use(bodyParser.json());
+/* -------------------------------------------------------------------------- */
+/*                               index || Server                              */
+/* -------------------------------------------------------------------------- */
 
 
-    
+require("dotenv").config();
+require('./config/database')()
+const app= require('./app');
 
 
 
+const {  PORT } = process.env;
 
+
+// console
+function ConsolLog(rep, res, next) {
+  console.log(" [" + rep["method"] + "] http://localhost:" + port + rep["url"]);
+
+  next();
+}
 
   
+const PORTS = PORT || 3030;
 
- module.exports = app;
+app.listen(PORTS,()=>{
+console.log(`Server is running on port ${PORT}`);
+});
+
