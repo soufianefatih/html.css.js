@@ -16,18 +16,6 @@
     {
       "name": "Users",
       "description": "Users endpoints"
-    },
-    {
-      "name": "Boards",
-      "description": "Boards endpoints"
-    },
-    {
-      "name": "Columns",
-      "description": "Columns endpoints"
-    },
-    {
-      "name": "Tasks",
-      "description": "Tasks endpoints"
     }
   ],
 
