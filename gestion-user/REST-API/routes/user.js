@@ -1,13 +1,15 @@
 const express = require("express");
 
-const { isAuthorized} = require("../../middlewares");
+// const { isAuthorized} = require("../../middlewares");
 
-const UserController = require('./../controller/users')
+const UserController = require('../controller/users/UsersController')
+const User = require("../models/user");
+
 
 const routerUser = express.Router();
 
 
-routerAuth.post("/register", ctrlAuth.register);
+// routerAuth.post("/register", ctrlAuth.register);
 
 
 

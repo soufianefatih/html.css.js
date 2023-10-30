@@ -1,11 +1,13 @@
-const User = require("../../models");
-const Actions = require("../../classes/Action");
-const { ObjectId } = require("mongodb");
+const User = require("../../models/user");
+// const Actions = require("../../classes/Action");
+// const { ObjectId } = require("mongodb");
 
 exports.all = async (req, res) => {
-  let filters = req.query.filters || {};
+//   let filters = req.query.filters || {};
 
-  const users = await Actions.setModel(User).filters(filters).get();
+//   const users = await Actions.setModel(User).filters(filters).get();
+const users = await User.find();
+
 
   res.json(users);
 };
