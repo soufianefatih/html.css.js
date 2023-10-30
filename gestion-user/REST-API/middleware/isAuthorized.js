@@ -4,7 +4,7 @@ const { User } = require("../models");
 
 const { SECRET_KEY } = process.env;
 
-const isAuthorized = async (req, res, next) => {
+exports.isAuthorized = async (req, res, next) => {
   const { authorization = "" } = req.headers;
   const [bearer, token] = authorization.split(" ");
   if (bearer !== "Bearer" || !token) {
@@ -35,4 +35,3 @@ const isAuthorized = async (req, res, next) => {
   }
 };
 
-module.exports = isAuthorized;

@@ -1,6 +1,7 @@
 const express = require("express");
 
-// const { isAuthorized} = require("../../middlewares");
+const Authorized = require("../middleware/isAuthorized");
+// const virifylogin= require("../middleware/roleAuthorized");
 
 const UserController = require('./../controller/users/UsersController')
 
@@ -14,7 +15,7 @@ const routerUser = express.Router();
 
 routerUser 
     .route('/')
-    .get(UserController.all)
+    .get( Authorized.isAuthorized,UserController.all)
 
 routerUser 
     .route('/create')

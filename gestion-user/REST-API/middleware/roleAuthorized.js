@@ -1,19 +1,19 @@
 // const jwt = require("jsonwebtoken");
 
-// exports.virifylogin =  function (req, res, next) {
-//   const token = req.header("auth-token");
-//   if (!token) {
-//     res.status(401).send({message: "Acess Denied"});
-//   }
-//   jwt.verify(token, process.env.SECRET_KEY, (err, user) => {
-//     if (err) {
-//       res.json({ success: false, message: "Failed to authenticate token " });
-//     } else {
-//       req.user = user;
-//       next();
-//     }
-//   });
-// };
+exports.virifylogin =  function (req, res, next) {
+  const token = req.header("auth-token");
+  if (!token) {
+    res.status(401).send({message: "Acess Denied"});
+  }
+  jwt.verify(token, process.env.SECRET_KEY, (err, user) => {
+    if (err) {
+      res.json({ success: false, message: "Failed to authenticate token " });
+    } else {
+      req.user = user;
+      next();
+    }
+  });
+};
 
 // module.exports = (req, res, next) => {
 //   try {
@@ -37,7 +37,7 @@
 
   
 
-const userRole = function(role){
+exports.userRole = function(role){
   return (req, res, next) => {
       if (!role.includes(req.user.role)) {
           res.status(401).json({ message: 'you dont have access to this route!' })
@@ -46,4 +46,4 @@ const userRole = function(role){
   }
 } 
 
-module.exports = userRole
+// module.exports = userRole
