@@ -2,8 +2,7 @@ const express = require("express");
 
 // const { isAuthorized} = require("../../middlewares");
 
-const UserController = require('../controller/users/UsersController')
-const User = require("../models/user");
+const UserController = require('./../controller/users/UsersController')
 
 
 const routerUser = express.Router();
