@@ -27,9 +27,7 @@ routerUser
     .route('/:id')
     .get(UserController.ById)
 
-routerUser 
-    .route('/:id/hotels')
-    .get(UserController.hotels)
+
 
 
 module.exports = routerUser;

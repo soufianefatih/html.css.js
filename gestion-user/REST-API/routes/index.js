@@ -6,5 +6,5 @@ const routerUser = require("./user");
 
 module.exports = {
   routerAuth,
- 
+  routerUser 
 };

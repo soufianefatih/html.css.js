@@ -41,8 +41,3 @@ exports.ById = async (req, res) => {
       }
 };
 
-exports.hotels = async (req, res) => {
-  let user = await User.findById(req.params.id);
-  await user.populate('hotels');
-  res.json(user);
-};

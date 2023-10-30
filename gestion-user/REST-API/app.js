@@ -11,10 +11,11 @@ const swaggerDocument = require("./swagger.json");
 
    const {
     routerAuth,
-   
+    routerUser 
   } = require("./routes");
     
-  app.use("/api/users", routerAuth);
+  app.use("/api/users", routerAuth, routerUser);
+
 
    //* documentation swagger
   app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
