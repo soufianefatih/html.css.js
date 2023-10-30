@@ -5,17 +5,19 @@ const { User } = require("../models");
 const { SECRET_KEY } = process.env;
 
 const isAuthorized = async (req, res, next) => {
-  const { authorization = "" } = req.headers;
-  const [bearer, token] = authorization.split(" ");
-  if (bearer !== "Bearer" || !token) {
+  // const { authorization = "" } = req.headers;
+  const token = req.header("auth-token");
+
+  // const [bearer, token] = authorization.split(" ");
+  if (!token) {
     // next(HttpError(401));
-    res.status(401).send({message: "Acess Denied"});
+    res.status(401).send({ success: false,message: "Acess Denied"});
   }
   try {
     const isValidToken = jwt.verify(token, SECRET_KEY);
 
     const user = await User.findOne({ _id: isValidToken.id });
-    if (!user || token !== user.accessToken || !user.accessToken)
+    if (!user)
       // throw HttpError(401);
       res.json({ success: false, message: "Failed to authenticate token " });
 
@@ -23,15 +25,18 @@ const isAuthorized = async (req, res, next) => {
     req.user = user;
     next();
   } catch (error) {
-    if (
-      error.message === "invalid signature" ||
-      error.message === "jwt expired" ||
-      error.message === "jwt must be provided"
-    ) {
-      error.status = 401;
-      error.message = "Unauthorized";
-    }
-    next(HttpError(401));
+    // if (
+    //   error.message === "invalid signature" ||
+    //   error.message === "jwt expired" ||
+    //   error.message === "jwt must be provided"
+    // ) {
+    //   error.status = 401;
+    //   error.message = "Unauthorized";
+    // }
+    res.status(401).send({message: error});
+    console.log('zzzzzzzzzzzzzzzz',error);
+
+    next();
   }
 };
 
