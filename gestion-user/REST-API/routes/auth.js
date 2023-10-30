@@ -7,6 +7,8 @@ const routerAuth = express.Router();
 
 routerAuth.post("/register", ctrlAuth.register);
 routerAuth.post("/login", ctrlAuth.login);
+routerAuth.post("/logout", ctrlAuth.logout);
+
 
 
 
