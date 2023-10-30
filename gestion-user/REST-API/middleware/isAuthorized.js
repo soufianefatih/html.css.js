@@ -25,19 +25,19 @@ const isAuthorized = async (req, res, next) => {
     req.user = user;
     next();
   } catch (error) {
-    // if (
-    //   error.message === "invalid signature" ||
-    //   error.message === "jwt expired" ||
-    //   error.message === "jwt must be provided"
-    // ) {
-    //   error.status = 401;
-    //   error.message = "Unauthorized";
-    // }
+    if (
+      error.message === "invalid signature" ||
+      error.message === "jwt expired" ||
+      error.message === "jwt must be provided"
+    ) {
+      error.status = 401;
+      error.message = "Unauthorized";
+    }
     res.status(401).send({message: error});
     console.log('zzzzzzzzzzzzzzzz',error);
-
-    next();
+ next();
   }
+ 
 };
 
 module.exports = isAuthorized;
