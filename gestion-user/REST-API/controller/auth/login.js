@@ -11,11 +11,9 @@ const login =  asyncHandler (async (req, res) => {
 
   const { email, password } = value;
   const user = await User.findOne({ email });
-  // if (!user) throw errorHandler(401, "Email is wrong");
   if (!user) res.json(401,{message:'Email is wrong'})
 
   if (!user.comparePassword(password)) {
-    // throw HttpError(401, "Password is wrong");
     res.json(401,{message:'Password is wrong'})
   }
 

@@ -24,11 +24,6 @@ const userSchema = new Schema(
     role: {
       type: String
     },
- 
-    accessToken: {
-      type: String,
-      default: null,
-    },
   },
   { versionKey: false, timestamps: true }
 );
