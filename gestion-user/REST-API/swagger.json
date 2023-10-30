@@ -614,17 +614,6 @@
             "description": "User's password",
             "example": "$2b$10$fNwXWuOdimNwjq1RdYCgUuCQfBvOGxxOqYqVta.A81EFBdBxOxk.m"
           },
-          "theme": {
-            "type": "string",
-            "description": "User's theme",
-            "enum": ["dark", "violet", "light"],
-            "example": "dark"
-          },
-          "avatarURL": {
-            "type": "string",
-            "description": "User's avatar",
-            "example": ""
-          },
           "accessToken": {
             "type": "string",
             "description": "User's token",
@@ -682,18 +671,8 @@
                 "description": "User's email",
                 "format": "email",
                 "example": "mango@email.com"
-              },
-              "theme": {
-                "type": "string",
-                "description": "User's theme",
-                "enum": ["dark", "violet", "light"],
-                "example": "dark"
-              },
-              "avatarURL": {
-                "type": "string",
-                "description": "User's avatar",
-                "example": ""
               }
+            
             }
           }
         }
