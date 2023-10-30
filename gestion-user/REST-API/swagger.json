@@ -5,6 +5,12 @@
     "version": "1.0.0",
     "description": "A simple API with Swagger documentation"
   },
+  "tags": [
+    {
+      "name": "Users",
+      "description": "Users endpoints"
+    }
+  ],
   "paths": {
     "/": {
       "get": {
