@@ -1,4 +1,4 @@
-const User = require("../../models/user");
+const User = require("../../models");
 const Actions = require("../../classes/Action");
 const { ObjectId } = require("mongodb");
 
@@ -17,7 +17,6 @@ exports.create = async (req, res) => {
     email: data.email,
     password: data.password,
     role: data.role,
-    blocked: data.blocked,
   });
 
   res.json(user);
