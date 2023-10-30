@@ -16,7 +16,9 @@ const swaggerDocument = require("./swagger.json");
     
   app.use("/api/users", routerAuth);
 
-    
+   //* documentation swagger
+  app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
      
      //* the will let us get data the data form post
     app.use(bodyParser.urlencoded({ extended: true }));
