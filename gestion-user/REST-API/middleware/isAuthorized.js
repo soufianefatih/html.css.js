@@ -16,7 +16,9 @@ const isAuthorized = async (req, res, next) => {
 
     const user = await User.findOne({ _id: isValidToken.id });
     if (!user || token !== user.accessToken || !user.accessToken)
-      throw HttpError(401);
+      // throw HttpError(401);
+      res.json({ success: false, message: "Failed to authenticate token " });
+
 
     req.user = user;
     next();
