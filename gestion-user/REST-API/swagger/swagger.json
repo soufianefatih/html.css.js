@@ -1,0 +1,25 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Swagger Example API",
+    "version": "1.0.0",
+    "description": "A simple API with Swagger documentation"
+  },
+  "paths": {
+    "/": {
+      "get": {
+        "summary": "Get a greeting",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "text/plain": {
+                "example": "Hello, Swagger!"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
