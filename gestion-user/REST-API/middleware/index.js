@@ -1,7 +1,7 @@
-// const userRole = require("./roleAuthorized");
-// const isAuthorized = require("./isAuthorized");
+const userRole = require("./roleAuthorized");
+const isAuthorized = require("./isAuthorized");
 
-// module.exports = {
-//   isAuthorized,
-//   userRole,
-// };
+module.exports = {
+  isAuthorized,
+  userRole,
+};
