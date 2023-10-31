@@ -60,7 +60,7 @@ try{
 
 //* update user
 
-exports.update = async (req, res) => {
+exports.up = async (req, res) => {
   try {
     const { _id, email: oldEmail, name: oldName } = req.body;
     console.log('usssss', req.body._id);
