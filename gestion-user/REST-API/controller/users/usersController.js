@@ -58,79 +58,7 @@ try{
 };
 
 
-//* update user 
-exports.up = async (req, res) => {
-  const { _id, email: oldEmail, name: oldName } = req.user;
-  console.log('usssss',req.user);
-  const { value, error } = userSchema.updateSchema.validate(req.body, {
-    abortEarly: false,
-  });
-  if (error) res.status(400).json({mesage:error.details[0]}) ;
-
-
-  const { name = oldName, email, password, role } = value;
-  const updatedUser = {
-    name,
-    role,
-  };
-
-
-  if (password) {
-    updatedUser.password = await hashedPassword(password);
-    res.status(204).json();
-  }
-
-  if (email && email !== oldEmail) {
-    updatedUser.email = email;
-    res.status(204).json();
-  }
-
-  const result = await User.findByIdAndUpdate(_id, updatedUser);
-  res.json(result);
-};
-
-
-
-exports.updat = async (req, res) => {
-  try {
-    const { _id, name, email, password } = req.body;
-
-    // Validate if _id is provided
-    if (!_id) {
-      return res.status(400).json({ message: '_id is required in the request body' });
-    }
-
-    // Update user based on _id
-    const user = await User.findById(_id);
-
-    // Check if user with the given _id exists
-    if (!user) {
-      return res.status(404).json({ message: 'User not found' });
-    }
-
-    // Update name and email
-    user.name = name || user.name;
-    user.email = email || user.email;
-
-    // Update password if provided
-    if (password) {
-      // Assuming hashedPassword is an async function
-      user.password = await hashedPassword(password);
-    }
-
-    // Save the updated user
-    const updatedUser = await user.save();
-
-    // Send the updated user in the response
-    res.json(updatedUser);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Internal Server Error' });
-  }
- 
-};
-
-
+//* update user
 
 exports.update = async (req, res) => {
   try {
@@ -144,10 +72,10 @@ exports.update = async (req, res) => {
       return res.status(400).json({ message: "Validation error", errors: error.details });
     }
 
-    const { name = oldName, email, password, role } = value;
+    const { name = oldName, email, password, role = oldRole } = value;
     const updatedUser = {
       name,
-      role,
+      role
     };
 
     if (password) {
@@ -160,7 +88,7 @@ exports.update = async (req, res) => {
 
     const result = await User.findByIdAndUpdate(_id, updatedUser, {
       new: true,
-      select: "name email theme avatarURL -_id",
+      select: "name email role",
     });
 
     res.json(result); // Move the response here outside of the conditions
