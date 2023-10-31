@@ -33,11 +33,10 @@ const isAuthorized = async (req, res, next) => {
       error.status = 401;
       error.message = "Unauthorized";
     }
-    res.status(401).send({message: error});
-    console.log('zzzzzzzzzzzzzzzz',error);
- next();
+    next(HttpError(401));
   }
  
 };
 
 module.exports = isAuthorized;
+  // res.status(401).send({message: error});
