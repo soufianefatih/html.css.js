@@ -9,6 +9,7 @@ const swaggerDocument = require("./swagger.json");
    app.use(express.json());
    app.use("/upload", express.static("./upload"));
 
+   // * routing path
    const {
     routerAuth,
     routerUser 
@@ -27,9 +28,6 @@ const swaggerDocument = require("./swagger.json");
 
 
     
-
-
-
 
 
   
