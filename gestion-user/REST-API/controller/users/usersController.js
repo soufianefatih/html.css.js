@@ -91,9 +91,9 @@ exports.up = async (req, res) => {
 
 
 
-exports.update = async (req, res) => {
+exports.updat = async (req, res) => {
   try {
-    const { _id, name, email,role } = req.body;
+    const { _id, name, email, password } = req.body;
 
     // Validate if _id is provided
     if (!_id) {
@@ -101,17 +101,71 @@ exports.update = async (req, res) => {
     }
 
     // Update user based on _id
-    const updatedUser = await User.findByIdAndUpdate(_id, { name, email,role }, { new: true });
+    const user = await User.findById(_id);
 
     // Check if user with the given _id exists
-    if (!updatedUser) {
+    if (!user) {
       return res.status(404).json({ message: 'User not found' });
     }
+
+    // Update name and email
+    user.name = name || user.name;
+    user.email = email || user.email;
+
+    // Update password if provided
+    if (password) {
+      // Assuming hashedPassword is an async function
+      user.password = await hashedPassword(password);
+    }
+
+    // Save the updated user
+    const updatedUser = await user.save();
 
     // Send the updated user in the response
     res.json(updatedUser);
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Internal Server Error' });
+  }
+ 
+};
+
+
+
+exports.update = async (req, res) => {
+  try {
+    const { _id, email: oldEmail, name: oldName } = req.body;
+    console.log('usssss', req.body);
+    const { value, error } = userSchema.updateSchema.validate(req.body, {
+      abortEarly: false,
+    });
+
+    if (error) {
+      return res.status(400).json({ message: "Validation error", errors: error.details });
+    }
+
+    const { name = oldName, email, password, role } = value;
+    const updatedUser = {
+      name,
+      role,
+    };
+
+    if (password) {
+      updatedUser.password = await hashedPassword(password);
+    }
+
+    if (email && email !== oldEmail) {
+      updatedUser.email = email;
+    }
+
+    const result = await User.findByIdAndUpdate(_id, updatedUser, {
+      new: true,
+      select: "name email theme avatarURL -_id",
+    });
+
+    res.json(result); // Move the response here outside of the conditions
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Internal Server Error" });
   }
 };
