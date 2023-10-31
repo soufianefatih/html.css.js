@@ -30,10 +30,11 @@ const isAuthorized = async (req, res, next) => {
       error.message === "jwt expired" ||
       error.message === "jwt must be provided"
     ) {
-      error.status = 401;
-      error.message = "Unauthorized";
+      // error.status = 401;
+      // error.message = "Unauthorized";
+        res.status(401).send({message: error.message});
     }
-    next(HttpError(401));
+    next();
   }
  
 };
