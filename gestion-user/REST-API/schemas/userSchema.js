@@ -53,6 +53,7 @@ const loginSchema = Joi.object({
 });
   
 const updateSchema = Joi.object({
+  _id: Joi.string(),
   name: Joi.string().min(2).max(32).pattern(regExp.name).messages({
     "string.pattern.base": message.nameInvalid,
   }),

@@ -59,13 +59,13 @@ try{
 
 
 //* update user 
-exports.update = async (req, res) => {
+exports.up = async (req, res) => {
   const { _id, email: oldEmail, name: oldName } = req.user;
   console.log('usssss',req.user);
   const { value, error } = userSchema.updateSchema.validate(req.body, {
     abortEarly: false,
   });
-  if (error) res.status(400).json({mesage:error}) ;
+  if (error) res.status(400).json({mesage:error.details[0]}) ;
 
 
   const { name = oldName, email, password, role } = value;
@@ -90,3 +90,13 @@ exports.update = async (req, res) => {
 };
 
 
+
+exports.update = async (req, res) => {
+  let data = req.body;
+  console.log(data);
+  const userUpdate = await User.findOneAndUpdate( data, {
+    returnDocument: "after",
+  });
+
+  res.json(userUpdate);
+};
