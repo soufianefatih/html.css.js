@@ -1,5 +1,5 @@
 const express = require("express");
-const {isAuthorized , virifylogin} = require("../middleware");
+const {virifylogin} = require("../middleware");
 const UserController = require('../controller/users/UsersController')
 
 
@@ -10,20 +10,19 @@ const routerUser = express.Router();
 
 
 routerUser 
-    .route('/')
-    .get(virifylogin,UserController.all)
+
+    .get("/",virifylogin,UserController.all)
 
 routerUser 
     .route('/create')
     .post(virifylogin,UserController.create)
 
 routerUser 
-    .route('/update')
-    .post(virifylogin,UserController.update)
+    .post("/update",virifylogin,UserController.update)
 
-routerUser 
-    .route('/:id')
-    .get(UserController.ById)
+// routerUser 
+//     .route('/:id')
+//     .get(UserController.ById)
 
 
 

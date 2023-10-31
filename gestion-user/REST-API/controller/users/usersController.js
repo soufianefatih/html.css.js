@@ -1,7 +1,7 @@
 const User = require("../../models/user");
 const Actions = require("../../classes/Action");
 const { userSchema } = require("../../schemas");
-const { HttpError, BadRequestError } = require("../../helpers");
+const { HttpError, BadRequestError,hashedPassword} = require("../../helpers");
 
 
 
@@ -59,12 +59,14 @@ try{
 
 
 //* update user 
-exports.update = async (req, res, next) => {
+exports.update = async (req, res) => {
   const { _id, email: oldEmail, name: oldName } = req.user;
+  console.log('usssss',req.user);
   const { value, error } = userSchema.updateSchema.validate(req.body, {
     abortEarly: false,
   });
-  if (error) BadRequestError(error);
+  if (error) res.status(400).json({mesage:error}) ;
+
 
   const { name = oldName, email, password, role } = value;
   const updatedUser = {
@@ -73,23 +75,17 @@ exports.update = async (req, res, next) => {
   };
 
 
-
   if (password) {
     updatedUser.password = await hashedPassword(password);
-    updatedUser.accessToken = "";
     res.status(204).json();
   }
 
   if (email && email !== oldEmail) {
     updatedUser.email = email;
-    updatedUser.accessToken = "";
     res.status(204).json();
   }
 
-  const result = await User.findByIdAndUpdate(_id, updatedUser, {
-    new: true,
-    select: "name email theme avatarURL -_id",
-  });
+  const result = await User.findByIdAndUpdate(_id, updatedUser);
   res.json(result);
 };
 

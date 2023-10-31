@@ -32,10 +32,6 @@ const registerSchema = Joi.object({
 
 });
 
-
-  
-
-
   
 const loginSchema = Joi.object({
   email: Joi.string()
@@ -56,7 +52,19 @@ const loginSchema = Joi.object({
     }),
 });
   
+const updateSchema = Joi.object({
+  name: Joi.string().min(2).max(32).pattern(regExp.name).messages({
+    "string.pattern.base": message.nameInvalid,
+  }),
+  email: Joi.string().pattern(regExp.email).messages({
+    "string.pattern.base": message.emailInvalid,
+  }),
+  password: Joi.string().min(8).max(64).pattern(regExp.password).allow(null).messages({
+    "string.pattern.base": message.passwordInvalid,
+  }),
+  role: Joi.string().min(0).max(64).messages()
+});
 
-  const authSchemas = { registerSchema ,loginSchema};
+  const userchemas = { registerSchema ,loginSchema,updateSchema};
 
-  module.exports = authSchemas;
+  module.exports = userchemas;
