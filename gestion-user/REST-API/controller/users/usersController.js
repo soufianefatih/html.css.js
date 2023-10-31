@@ -60,7 +60,7 @@ try{
 
 //* update user
 
-exports.up = async (req, res) => {
+exports.update = async (req, res) => {
   try {
     const { _id, email: oldEmail, name: oldName } = req.body;
     console.log('usssss', req.body._id);
@@ -69,7 +69,7 @@ exports.up = async (req, res) => {
     });
 
     // Validate if _id is provided
-    const id = req.body._id
+    const id = req.body._id;
     if (!id) {
       return res.status(400).json({ message: '_id is required in the request body' });
     }
@@ -83,39 +83,50 @@ exports.up = async (req, res) => {
     }
 
     if (error) {
-      return res.status(400).json({ message: "Validation error", errors: error.details});
+      return res.status(400).json({ message: "Validation error", errors: error.details });
     }
 
-    const { name = oldName, email, password, role = oldRole } = value;
+    const { name = oldName, email= oldEmail, password, role = oldRole } = value;
     const updatedUser = {
       name,
-      role
+      email,
+      role,
     };
 
     if (password) {
       updatedUser.password = await hashedPassword(password);
     }
 
-    if (email && email !== oldEmail) {
-      updatedUser.email = email;
-    }
-
-    const result = await User.findByIdAndUpdate(_id, updatedUser, {
+    const result = await User.findByIdAndUpdate(id, updatedUser, {
       new: true,
       select: "name email role",
     });
 
     res.json(result); // Move the response here outside of the conditions
   } catch (err) {
+     // Log the error for debugging
+     console.error(err);
+
+    // If the error is due to an incorrect or missing _id, handle it separately
+    if (err.message.includes('_id is required')) {
+      return res.status(400).json({ message: '_id is required in the request body' });
+    }
+
+    // If the error is due to user not found, handle it separately
+    if (err.message.includes('User not found')) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
     console.error(err);
     res.status(500).json({ message: "Internal Server Error" });
   }
 };
 
-exports.update = async (req, res) => {
+
+exports.updateProfileuser = async (req, res) => {
   try {
-    const { _id, email: oldEmail, name: oldName } = req.body;
-    console.log('usssss', req.body._id);
+    const { _id, email: oldEmail, name: oldName } = req.user;
+    console.log('usssss', req.user);
     const { value, error } = userSchema.updateSchema.validate(req.body, {
       abortEarly: false,
     });
@@ -159,9 +170,6 @@ exports.update = async (req, res) => {
 
     res.json(result); // Move the response here outside of the conditions
   } catch (err) {
-     // Log the error for debugging
-     console.error(err);
-
     // If the error is due to an incorrect or missing _id, handle it separately
     if (err.message.includes('_id is required')) {
       return res.status(400).json({ message: '_id is required in the request body' });
@@ -176,4 +184,3 @@ exports.update = async (req, res) => {
     res.status(500).json({ message: "Internal Server Error" });
   }
 };
-
