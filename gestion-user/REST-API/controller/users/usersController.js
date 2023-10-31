@@ -92,6 +92,11 @@ exports.up = async (req, res) => {
 
 
 exports.update = async (req, res) => {
+  const { value, error } = userSchema.updateSchema.validate(req.body, {
+    abortEarly: false,
+  });
+  if (error) res.status(400).json({mesage:error.details[0]}) ;
+
   let data = req.body;
   console.log(data);
   const userUpdate = await User.findOneAndUpdate( data, {
