@@ -23,7 +23,7 @@ try{
 
 // * create new user
 exports.create = async (req, res) => {
-  const { value, error } = userSchema .registerSchema.validate(req.body, {
+  const { value, error } = userSchema.registerSchema.validate(req.body, {
     abortEarly: false,
   });
   

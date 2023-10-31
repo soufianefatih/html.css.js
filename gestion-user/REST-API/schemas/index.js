@@ -1,7 +1,7 @@
-const authSchema = require("./userSchema");
+const userSchema = require("./userSchema");
 
 
 module.exports = {
-  authSchema,
+  userSchema,
 
 };

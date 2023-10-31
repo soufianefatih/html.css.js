@@ -15,7 +15,7 @@ routerUser
 
 routerUser 
     .route('/create')
-    .post(UserController.create)
+    .post(virifylogin,UserController.create)
 
 routerUser 
     .route('/update/:id')
