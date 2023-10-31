@@ -1,6 +1,7 @@
 const User = require("../../models/user");
 const Actions = require("../../classes/Action");
 const { userSchema } = require("../../schemas");
+const { HttpError, BadRequestError } = require("../../helpers");
 
 
 
@@ -20,16 +21,40 @@ try{
 
 };
 
+// * create new user
 exports.create = async (req, res) => {
-  let data = req.body;
-  const user = await User.create({
-    name: data.name,
-    email: data.email,
-    password: data.password,
-    role: data.role,
+  const { value, error } = userSchema .registerSchema.validate(req.body, {
+    abortEarly: false,
   });
+  
+try{ 
+  console.log('value',{ value, error });
 
-  res.json(user);
+  const { name, email, password,role} = value;
+  
+
+  if (error) BadRequestError(error);
+
+  const userEmail = await User.findOne({ email });
+ 
+  if (userEmail) res.status(409).json({ message:"Email has already in use"});
+  
+    const result = await User.create({
+      name,
+      email,
+      password,
+      role ,
+    });
+  
+      res.status(201).json(result);
+   } catch (err) {
+
+        res.status(400).json({message: 'Created failed', err: error.details[0].message });
+        console.log('error',error.details[0].message);
+
+   }
+
+
 };
 
 exports.update = async (req, res) => {
