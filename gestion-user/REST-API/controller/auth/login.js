@@ -1,10 +1,10 @@
 const { User } = require("../../models");
-const { authSchema } = require("../../schemas");
+const {  userSchema} = require("../../schemas");
 const { HttpError, BadRequestError} = require("../../helpers");
 const asyncHandler = require('express-async-handler')
 
 const login =  asyncHandler (async (req, res) => {
-  const { value, error } = authSchema.loginSchema.validate(req.body, {
+  const { value, error } =  userSchema.loginSchema.validate(req.body, {
     abortEarly: false,
   });
   if (error) BadRequestError(error);
