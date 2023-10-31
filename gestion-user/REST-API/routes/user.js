@@ -1,6 +1,7 @@
 const express = require("express");
 const {isAuthorized , virifylogin} = require("../middleware");
 const UserController = require('../controller/users/UsersController')
+const { ctrlWrapper } = require("../decorators");
 
 
 const routerUser = express.Router();
@@ -11,7 +12,7 @@ const routerUser = express.Router();
 
 routerUser 
     .route('/')
-    .get( virifylogin,UserController.all)
+    .get( virifylogin,ctrlWrapper,UserController.all)
 
 routerUser 
     .route('/create')
