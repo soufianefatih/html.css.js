@@ -92,16 +92,26 @@ exports.up = async (req, res) => {
 
 
 exports.update = async (req, res) => {
-  const { value, error } = userSchema.updateSchema.validate(req.body, {
-    abortEarly: false,
-  });
-  if (error) res.status(400).json({mesage:error.details[0]}) ;
+  try {
+    const { _id, name, email,role } = req.body;
 
-  let data = req.body;
-  console.log(data);
-  const userUpdate = await User.findOneAndUpdate( data, {
-    returnDocument: "after",
-  });
+    // Validate if _id is provided
+    if (!_id) {
+      return res.status(400).json({ message: '_id is required in the request body' });
+    }
 
-  res.json(userUpdate);
+    // Update user based on _id
+    const updatedUser = await User.findByIdAndUpdate(_id, { name, email,role }, { new: true });
+
+    // Check if user with the given _id exists
+    if (!updatedUser) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    // Send the updated user in the response
+    res.json(updatedUser);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal Server Error' });
+  }
 };
