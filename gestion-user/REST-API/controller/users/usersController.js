@@ -1,15 +1,23 @@
 const User = require("../../models/user");
-// const Actions = require("../../classes/Action");
-// const { ObjectId } = require("mongodb");
+const Actions = require("../../classes/Action");
+const { userSchema } = require("../../schemas");
 
+
+
+// * get all users
 exports.all = async (req, res) => {
-//   let filters = req.query.filters || {};
+  // let filters = req.query.filters || {};
 
-//   const users = await Actions.setModel(User).filters(filters).get();
-const users = await User.find();
+try{
+  // const users = await Actions.setModel(User).filters(filters).get();
+  const users = await User.find();
+  res.status(200).json(users);
+
+}catch(error){
+  res.status(400).send(error);
+}
 
 
-  res.json(users);
 };
 
 exports.create = async (req, res) => {
