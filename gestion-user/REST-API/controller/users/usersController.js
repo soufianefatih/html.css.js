@@ -81,6 +81,10 @@ exports.update = async (req, res) => {
     if (!user) {
       return res.status(404).json({ message: 'User not found' });
     }
+    // check email is exist
+    const userEmail = await User.findOne({ email });
+ 
+    if (userEmail) res.status(409).json({ message:"Email has already in use"});
 
     if (error) {
       return res.status(400).json({ message: "Validation error", errors: error.details });
@@ -115,6 +119,11 @@ exports.update = async (req, res) => {
     // If the error is due to user not found, handle it separately
     if (err.message.includes('User not found')) {
       return res.status(404).json({ message: 'User not found' });
+    }
+
+     // If the error is due to user not found, handle it separately
+     if (err.message.includes('Email has already in use')) {
+      return res.status(409).json({ message: 'Email has already in use' });
     }
 
     console.error(err);
