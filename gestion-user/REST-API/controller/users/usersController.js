@@ -57,22 +57,40 @@ try{
 
 };
 
-exports.update = async (req, res) => {
-  let data = req.body;
-  const userUpdate = await User.findOneAndUpdate({ _id: req.params.id }, data, {
-    returnDocument: "after",
+
+//* update user 
+exports.update = async (req, res, next) => {
+  const { _id, email: oldEmail, name: oldName } = req.user;
+  const { value, error } = userSchema.updateSchema.validate(req.body, {
+    abortEarly: false,
   });
+  if (error) BadRequestError(error);
 
-  res.json(userUpdate);
+  const { name = oldName, email, password, role } = value;
+  const updatedUser = {
+    name,
+    role,
+  };
+
+
+
+  if (password) {
+    updatedUser.password = await hashedPassword(password);
+    updatedUser.accessToken = "";
+    res.status(204).json();
+  }
+
+  if (email && email !== oldEmail) {
+    updatedUser.email = email;
+    updatedUser.accessToken = "";
+    res.status(204).json();
+  }
+
+  const result = await User.findByIdAndUpdate(_id, updatedUser, {
+    new: true,
+    select: "name email theme avatarURL -_id",
+  });
+  res.json(result);
 };
 
-exports.ById = async (req, res) => {
-    try {
-        const users = await User.findById(req.params.id);
-    
-        res.json(users);
-      } catch (error) {
-        res.status(400).send(error);
-      }
-};
 
