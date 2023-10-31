@@ -85,7 +85,9 @@ exports.update = async (req, res) => {
     // check email is exist
     const userEmail = await User.findOne({findemail});
  
-    if (userEmail) res.status(409).json({ message:"Email has already in use"});
+    if (!userEmail){
+      return res.status(409).json({ message:"Email has already in use"});
+    } 
 
     if (error) {
       return res.status(400).json({ message: "Validation error", errors: error.details });
