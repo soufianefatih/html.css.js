@@ -69,7 +69,7 @@ exports.update = async (req, res) => {
     });
 
     if (error) {
-      return res.status(400).json({ message: "Validation error", errors: error.details });
+      return res.status(400).json({ message: "Validation error", errors: error[0].message});
     }
 
     const { name = oldName, email, password, role = oldRole } = value;
