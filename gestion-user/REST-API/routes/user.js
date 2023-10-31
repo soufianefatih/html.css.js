@@ -11,7 +11,7 @@ const routerUser = express.Router();
 
 routerUser 
     .route('/')
-    .get( isAuthorized,UserController.all)
+    .get( virifylogin,UserController.all)
 
 routerUser 
     .route('/create')
