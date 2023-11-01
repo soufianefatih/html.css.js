@@ -32,6 +32,7 @@ const swaggerDocument = require("./swagger.json");
       res.status(404).json({ message: "Not Found" });
     });
     
+   //* global error handler
     app.use((err, req, res, next) => {
       const { status = 500, message = "Server Error" } = err;
       res.status(status).json({ message });
