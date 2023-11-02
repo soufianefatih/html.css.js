@@ -30,7 +30,7 @@ const isExistingUser = async (value, helpers) => {
     return value;
   } catch (error) {
     console.error(error);
-    throw new helpers.error('any.invalid', { message: 'Database error' });
+    throw helpers.error('any.invalid', { message: 'Database error' });
   }
 };
 
