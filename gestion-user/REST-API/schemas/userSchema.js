@@ -25,12 +25,12 @@ const isExistingUser = async (value, helpers) => {
   try {
     const existingUser = await User.findById(value);
     if (!existingUser) {
-      throw new helpers.error('any.invalid', { message: 'User not found' });
+      throw { message: 'User not found', type: 'any.invalid' };
     }
     return value;
   } catch (error) {
     console.error(error);
-    throw helpers.error('any.invalid', { message: 'Database error' });
+    throw { message: 'Database error', type: 'any.invalid' };
   }
 };
 
