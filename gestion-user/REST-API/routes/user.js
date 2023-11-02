@@ -1,7 +1,7 @@
 const express = require("express");
 const {virifylogin} = require("../middleware");
 const UserController = require('../controller/users/UsersController')
-
+const {ctrlWrapper} = require('../decorators')
 
 const routerUser = express.Router();
 
@@ -16,6 +16,8 @@ routerUser
 routerUser 
     .route('/create')
     .post(virifylogin,UserController.create)
+
+
 
 routerUser 
     .post("/update",virifylogin,UserController.update)

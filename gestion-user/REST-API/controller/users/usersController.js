@@ -2,7 +2,7 @@ const User = require("../../models/user");
 const Actions = require("../../classes/Action");
 const { userSchema } = require("../../schemas");
 const { HttpError, BadRequestError,hashedPassword} = require("../../helpers");
-const ctrlWraper = require('../../decorators/error')
+const ctrlWraper = require('../../decorators/wrapFunction')
 
 
 
