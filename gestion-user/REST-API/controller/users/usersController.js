@@ -69,14 +69,15 @@ exports.update = ctrlWraper(async(req, res) => {
     });
 
     // Validate if _id is provided
-    const id = req.body._id;
-    const findemail = req.body.email
+    // const id = req.body._id;
+    // const findemail = req.body.email
     // if (!id) {
     //   return res.status(400).json({ message: '_id is required in the request body' });
     // }
 
     // Update user based on _id
-    const user = await User.findById(id);
+    // const user = await User.findById(id);
+    await isExistingUser(id, req, res);
 
     // Check if user with the given _id exists
     // if (!user) {
@@ -110,6 +111,7 @@ exports.update = ctrlWraper(async(req, res) => {
     });
 
     res.json(result); // Move the response here outside of the conditions
+   
   
 });
 

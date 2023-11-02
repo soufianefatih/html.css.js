@@ -30,9 +30,11 @@ const isExistingUser = async (value, helpers) => {
     return value;
   } catch (error) {
     console.error(error);
-    throw { message: 'Database error', type: 'any.invalid' };
+    // Return a rejected promise with the error to ensure proper handling
+    return Promise.reject(error);
   }
 };
+
 
 const registerSchema = Joi.object({
   name: Joi.string()
