@@ -1,4 +1,4 @@
-const ctrlWrapper = require('../../decorators/error');
+const ctrlWrapper = require('./ctrlWrapper');
 
 const wrapFunction = (func) => ctrlWrapper(async (req, res) => {
   try {

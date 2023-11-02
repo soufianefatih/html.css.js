@@ -9,7 +9,7 @@ const isUniqueEmail = async (value, helpers) => {
   try {
     const existingUser = await User.findOne({ email: value });
     if (existingUser) {
-      throw new Error('Email already exists');
+      return  HttpError('Email already exists');
     }
     return value;
   } catch (error) {
@@ -23,7 +23,7 @@ const isUniqueEmail = async (value, helpers) => {
 
 const isExistingUser = async (value, helpers) => {
   try {
-    const existingUser = await User.findOne({_id:value});
+    const existingUser = await User.findById(value);
     if (!existingUser) {
       throw new Error('User not found');
     }
@@ -51,7 +51,7 @@ const registerSchema = Joi.object({
     .messages({
       "any.required": message.fieldRequired("email"),
       "string.pattern.base": message.emailInvalid,
-    }).custom(isUniqueEmail),
+    }),
   password: Joi.string()
     .min(8)
     .max(64)
@@ -92,7 +92,7 @@ const updateSchema = Joi.object({
   }),
   email: Joi.string().pattern(regExp.email).messages({
     "string.pattern.base": message.emailInvalid,
-  }),
+  }).custom(isUniqueEmail),
   password: Joi.string().min(8).max(64).pattern(regExp.password).allow(null).messages({
     "string.pattern.base": message.passwordInvalid,
   }),
