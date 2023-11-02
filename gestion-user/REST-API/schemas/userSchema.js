@@ -4,6 +4,19 @@ const User = require('../models/user'); // Adjust the path as needed
 const { HttpError, BadRequestError} = require("../helpers");
 
 
+// Custom validator function to check if the email is unique
+const isUniqueEmail = async (value, helpers) => {
+  try {
+    const existingUser = await User.findOne({ email: value });
+    if (existingUser) {
+      throw new Error('Email already exists');
+    }
+    return value;
+  } catch (error) {
+    console.error(error);
+    throw new Error('Database error');
+  }
+};
 
 
 // Custom validator function to check if the user with _id exists
@@ -39,7 +52,7 @@ const registerSchema = Joi.object({
     .messages({
       "any.required": message.fieldRequired("email"),
       "string.pattern.base": message.emailInvalid,
-    }),
+    }).custom(isUniqueEmail),
   password: Joi.string()
     .min(8)
     .max(64)
