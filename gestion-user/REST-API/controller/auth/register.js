@@ -7,7 +7,6 @@ const register = async (req, res) => {
     abortEarly: false,
   });
   
-try{ 
   console.log('value',{ value, error });
 
   const { name, email, password} = value;
@@ -32,12 +31,7 @@ try{
     });
   
       res.status(201).json(result);
-   } catch (err) {
-
-        res.status(400).json({message: 'Registration failed', err: error.details[0].message });
-        console.log('error',error.details[0].message);
-
-   }
+ 
 
 
 };
