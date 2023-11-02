@@ -20,18 +20,17 @@ const isUniqueEmail = async (value, helpers) => {
 
 
 // Custom validator function to check if the user with _id exists
+
 const isExistingUser = async (value, helpers) => {
   try {
-    const existingUser = await User.findById(value);
+    const existingUser = await User.findOne({_id:value});
     if (!existingUser) {
-      // throw HttpError(404,'User not found');
-      throw HttpError(error);
-
+      throw new Error('User not found');
     }
     return value;
   } catch (error) {
     console.error(error);
-    throw HttpError(error);
+    throw new Error('Database error');
   }
 };
 
