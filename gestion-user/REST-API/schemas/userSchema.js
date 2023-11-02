@@ -1,6 +1,7 @@
 const Joi = require("joi");
 const { regExp, message } = require("../constants");
 const User = require('../models/user'); // Adjust the path as needed
+const { HttpError, BadRequestError} = require("../helpers");
 
 
 
@@ -10,12 +11,14 @@ const isExistingUser = async (value, helpers) => {
   try {
     const existingUser = await User.findById(value);
     if (!existingUser) {
-      throw new Error('User not found');
+      // throw HttpError(404,'User not found');
+      throw HttpError(error);
+
     }
     return value;
   } catch (error) {
     console.error(error);
-    throw new Error('Database error');
+    throw HttpError(error);
   }
 };
 
@@ -71,7 +74,7 @@ const loginSchema = Joi.object({
 });
   
 const updateSchema = Joi.object({
-  _id: Joi.string(),
+  _id: Joi.string().custom(isExistingUser),
   name: Joi.string().min(2).max(32).pattern(regExp.name).messages({
     "string.pattern.base": message.nameInvalid,
   }),

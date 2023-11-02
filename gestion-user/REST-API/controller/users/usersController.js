@@ -2,6 +2,7 @@ const User = require("../../models/user");
 const Actions = require("../../classes/Action");
 const { userSchema } = require("../../schemas");
 const { HttpError, BadRequestError,hashedPassword} = require("../../helpers");
+const {ctrlWrapper}  = require("../../decorators")
 
 
 
@@ -60,8 +61,8 @@ try{
 
 //* update user
 
-exports.update = async (req, res) => {
-  try {
+exports.update =ctrlWrapper(async (req, res) => {
+ 
     const { _id, email: oldEmail, name: oldName } = req.body;
     console.log('usssss', req.body._id);
     const { value, error } = userSchema.updateSchema.validate(req.body, {
@@ -85,7 +86,7 @@ exports.update = async (req, res) => {
     // check email is exist
     const userEmail = await User.findOne({findemail});
  
-    if (!userEmail){
+    if (userEmail){
       return res.status(409).json({ message:"Email has already in use"});
     } 
 
@@ -93,7 +94,7 @@ exports.update = async (req, res) => {
       return res.status(400).json({ message: "Validation error", errors: error.details });
     }
 
-    const { name = oldName, email= oldEmail, password, role = oldRole } = value;
+    const { name = oldName, email= oldEmail, password, role } = value;
     const updatedUser = {
       name,
       email,
@@ -110,28 +111,8 @@ exports.update = async (req, res) => {
     });
 
     res.json(result); // Move the response here outside of the conditions
-  } catch (err) {
-     // Log the error for debugging
-     console.error(err);
-
-    // If the error is due to an incorrect or missing _id, handle it separately
-    if (err.message.includes('_id is required')) {
-      return res.status(400).json({ message: '_id is required in the request body' });
-    }
-
-    // If the error is due to user not found, handle it separately
-    if (err.message.includes('User not found')) {
-      return res.status(404).json({ message: 'User not found' });
-    }
-
-     if (err.message.includes('Email has already')) {
-      return res.status(409).json({ message: 'Email has already in use' });
-    }
-
-    console.error(err);
-    res.status(500).json({ message: "Internal Server Error" });
-  }
-};
+  
+});
 
 
 exports.updateProfileuser = async (req, res) => {
