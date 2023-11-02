@@ -1,5 +1,23 @@
 const Joi = require("joi");
 const { regExp, message } = require("../constants");
+const User = require('../models/user'); // Adjust the path as needed
+
+
+
+
+// Custom validator function to check if the user with _id exists
+const isExistingUser = async (value, helpers) => {
+  try {
+    const existingUser = await User.findById(value);
+    if (!existingUser) {
+      throw new Error('User not found');
+    }
+    return value;
+  } catch (error) {
+    console.error(error);
+    throw new Error('Database error');
+  }
+};
 
 
 const registerSchema = Joi.object({
@@ -66,6 +84,6 @@ const updateSchema = Joi.object({
   role: Joi.string().min(0).max(64).messages()
 });
 
-  const userchemas = { registerSchema ,loginSchema,updateSchema};
+  const userchemas = { registerSchema ,loginSchema,updateSchema, isExistingUser};
 
   module.exports = userchemas;

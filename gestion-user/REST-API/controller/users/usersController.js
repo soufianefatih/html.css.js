@@ -71,17 +71,17 @@ exports.update = async (req, res) => {
     // Validate if _id is provided
     const id = req.body._id;
     const findemail = req.body.email
-    if (!id) {
-      return res.status(400).json({ message: '_id is required in the request body' });
-    }
+    // if (!id) {
+    //   return res.status(400).json({ message: '_id is required in the request body' });
+    // }
 
     // Update user based on _id
     const user = await User.findById(id);
 
     // Check if user with the given _id exists
-    if (!user) {
-      return res.status(404).json({ message: 'User not found' });
-    }
+    // if (!user) {
+    //   return res.status(404).json({ message: 'User not found' });
+    // }
     // check email is exist
     const userEmail = await User.findOne({findemail});
  

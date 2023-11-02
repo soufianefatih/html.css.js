@@ -19,17 +19,17 @@ const swaggerDocument = require("./swagger.json");
 
 
    //* documentation swagger
-  app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+    app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
      
-     //* the will let us get data the data form post
+   //* the will let us get data the data form post
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(bodyParser.json());
 
 
-  //* global midleware for not router
+   //* global midleware for not router
     app.use((req, res) => {
-      res.status(404).json({ message: "Not Found" });
+      res.status(404).json({ message: "Root Not Found" });
     });
     
    //* global error handler
