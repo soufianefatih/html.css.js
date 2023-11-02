@@ -17,9 +17,9 @@ const register = async (req, res) => {
 
   if (error) BadRequestError(error);
 
-  const userEmail = await User.findOne({ email });
+  // const userEmail = await User.findOne({ email });
  
-  if (userEmail)throw HttpError(409, "Email has already in use");
+  // if (userEmail)throw HttpError(409, "Email has already in use");
 
   if(value.role == 'admin') throw HttpError(400,'this role is not available!');
   
