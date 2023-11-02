@@ -19,9 +19,9 @@ const register = async (req, res) => {
 
   const userEmail = await User.findOne({ email });
  
-  if (userEmail) res.status(409).json({ message:"Email has already in use"});
-  if(value.role == 'admin') res.status(400).json({message: 'this role is not available!'})
+  if (userEmail)throw HttpError(409, "Email has already in use");
 
+  if(value.role == 'admin') throw HttpError(400,'this role is not available!');
   
     const result = await User.create({
       name,
