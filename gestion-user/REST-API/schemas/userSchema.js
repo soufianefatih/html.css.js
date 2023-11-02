@@ -25,7 +25,7 @@ const isExistingUser = async (value, helpers) => {
   try {
     const existingUser = await User.findById(value);
     if (!existingUser) {
-      throw { message: 'User not found', type: 'any.invalid' };
+      throw new HttpError(409, "user not found");
     }
     return value;
   } catch (error) {

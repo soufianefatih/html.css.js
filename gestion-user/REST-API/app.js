@@ -33,8 +33,14 @@ const swaggerDocument = require("./swagger.json");
     });
     
    //* global error handler
+    // app.use((err, req, res, next) => {
+    //   const { status = 500, message = "Server Error" } = err;
+    //   res.status(status).json({ message });
+    // });
+
     app.use((err, req, res, next) => {
       const { status = 500, message = "Server Error" } = err;
+      console.error(err); // Log the error for debugging
       res.status(status).json({ message });
     });
     

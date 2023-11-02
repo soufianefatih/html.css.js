@@ -3,6 +3,7 @@ const Actions = require("../../classes/Action");
 const { userSchema } = require("../../schemas");
 const { HttpError, BadRequestError,hashedPassword} = require("../../helpers");
 const wrapFunction = require('../../decorators/wrapFunction')
+const { isExistingUser,isUniqueEmail } = require('../../schemas/userSchema')
 
 
 
@@ -78,6 +79,8 @@ exports.update = wrapFunction(async(req, res) => {
     // Update user based on _id
     // const user = await User.findById(id);
     await isExistingUser(id, req, res);
+    await isUniqueEmail(id, req, res);
+
 
     // Check if user with the given _id exists
     // if (!user) {
