@@ -225,7 +225,11 @@ exports.update = asyncHandler(async (req, res, next) => {
     res.json(result);
   } catch (error) {
     if (error.status === 409) {
-      return res.status(409).json({ message: error.message, error: error.message });
+      return res.status(409).json({ message: error.message});
+
+    }else if(error.status === 400){
+      return res.status(400).json({ message: error.message});
+
     } else {
       return res.status(500).json({ message: "Internal Server Error", error: error.message });
     }
