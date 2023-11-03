@@ -6,33 +6,33 @@ const AppError = require("../utils/error")
 
 
 // Custom validator function to check if the email is unique
-// const isUniqueEmail = async (value, helpers, next) => {
-//   try {
-//     const existingUser = await User.findOne({ email: value });
-//     if (existingUser) {
-//       const errorMessage = "Email is already in use by another user.";
-//       throw HttpError(409, errorMessage);
-//     }
-//     return value;
-//   } catch (error) {
-//     console.error("isUniqueEmail error:", error);
-//     // You can handle the error here or throw it to be caught in the calling function
-//     return Promise.reject(error);
-//   }
-// };
-// Custom validator function to check if the user with _id exists
-
-const isUniqueEmail = async (value, { req }) => {
+const isUniqueEmail = async (value, helpers, next) => {
   try {
     const existingUser = await User.findOne({ email: value });
-    if (existingUser && existingUser._id.toString() !== req.body._id) {
-      return Promise.reject(message.emailInvalid);
+    if (existingUser) {
+      const errorMessage = "Email is already in use by another user.";
+      throw HttpError(409, errorMessage);
     }
     return value;
   } catch (error) {
-    return Promise.reject(message.emailInvalid);
+    console.error("isUniqueEmail error:", error);
+    // You can handle the error here or throw it to be caught in the calling function
+    return Promise.reject(error);
   }
 };
+// Custom validator function to check if the user with _id exists
+
+// const isUniqueEmail = async (value, { req }) => {
+//   try {
+//     const existingUser = await User.findOne({ email: value });
+//     if (existingUser && existingUser._id.toString() !== req.body._id) {
+//       return Promise.reject(message.emailInvalid);
+//     }
+//     return value;
+//   } catch (error) {
+//     return Promise.reject(message.emailInvalid);
+//   }
+// };
 
 
 const isExistingUser = async (value, helpers) => {
@@ -112,6 +112,25 @@ const updateSchema = Joi.object({
   role: Joi.string().min(0).max(64).messages()
 });
 
-  const userchemas = { registerSchema ,loginSchema,updateSchema, isExistingUser,isUniqueEmail};
+// Usage example
+const validateAndUpdate = async (req, res) => {
+  try {
+    const { value, error } = await updateSchema.validate(req.body, {
+      abortEarly: false,
+    });
+
+    if (error) {
+      return res.status(400).json({ message: "Validation error", errors: error.details });
+    }
+
+    // Rest of your code...
+  } catch (error) {
+    // Handle other errors, if any
+    console.error(error);
+    return res.status(500).json({ message: "Internal Server Error" });
+  }
+};
+
+  const userchemas = { registerSchema ,loginSchema,updateSchema, isExistingUser,isUniqueEmail,validateAndUpdate};
 
   module.exports = userchemas;

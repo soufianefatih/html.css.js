@@ -83,6 +83,7 @@ exports.update = asyncHandler(async (req, res, next) => {
     await isExistingUser(id, req, res);
     await isUniqueEmail(id, req, res);
 
+
     if (error) {
       return res.status(400).json({ message: "Validation error", errors: error.details });      // throw  BadRequestError(error )
     }
