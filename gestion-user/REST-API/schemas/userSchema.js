@@ -2,7 +2,7 @@ const Joi = require("joi");
 const { regExp, message } = require("../constants");
 const User = require('../models/user'); // Adjust the path as needed
 const {HttpError} = require("../helpers");
-const AppError = require("../utils/error")
+const isUniqueEmail = require("../validator/emailIsexistValidation")
 
 
 // Custom validator function to check if the user with _id exists
