@@ -15,7 +15,7 @@ const isUniqueEmail = async (value, helpers, next) => {
     }
     return value;
   } catch (error) {
-    console.error(error);
+    console.error("isUniqueEmail error:", error);
     // You can handle the error here or throw it to be caught in the calling function
     return Promise.reject(error);
   }
@@ -31,8 +31,7 @@ const isExistingUser = async (value, helpers) => {
     }
     return value;
   } catch (error) {
-    console.error(error);
- // You can handle the error here or throw it to be caught in the calling function
+    console.error("isExistingUser error:", error); // You can handle the error here or throw it to be caught in the calling function
    return Promise.reject(error);  }
 };
 
