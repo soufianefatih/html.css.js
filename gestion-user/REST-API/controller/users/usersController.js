@@ -4,6 +4,7 @@ const { userSchema } = require("../../schemas");
 const { HttpError, BadRequestError,hashedPassword} = require("../../helpers");
 const wrapFunction = require('../../decorators/wrapFunction')
 const { isExistingUser,isUniqueEmail } = require('../../schemas/userSchema')
+const asyncHandler = require('express-async-handler')
 
 
 
@@ -62,7 +63,7 @@ try{
 
 //* update user
 
-exports.update = wrapFunction(async(req, res) => {
+exports.update = asyncHandler(async(req, res,next) => {
   const {_id, email: oldEmail, name: oldName } = req.body;
     const id = _id;
   console.log('usssss', req.body._id);
@@ -83,6 +84,7 @@ exports.update = wrapFunction(async(req, res) => {
 
     await isExistingUser(id, req, res);
     await isUniqueEmail(id, req, res);
+
 
 
     // Check if user with the given _id exists

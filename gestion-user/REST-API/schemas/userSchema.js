@@ -6,28 +6,22 @@ const AppError = require("../utils/error")
 
 
 // Custom validator function to check if the email is unique
-const isUniqueEmail = async (value, helpers,next) => {
+const isUniqueEmail = async (value, helpers, next) => {
   try {
     const existingUser = await User.findOne({ email: value });
     if (existingUser) {
-      // const errorMessage = "Email is already in use by another user.";
-    //  const errorMessage= AppError.create("Email is already in use by another user.",409)
-      throw  HttpError(409, errorMessage);
-      // return next( AppError.create("Email is already in use by another user.",409))
-      // return new AppError(" emaoil Internal Server Error",409)
-
+      const errorMessage = "Email is already in use by another user.";
+      throw HttpError(409, errorMessage);
     }
     return value;
   } catch (error) {
     console.error(error);
-    // Handle other errors or rethrow them if needed
-    // return new AppError("Intern:al Server Error",500)
-  
-
-    throw  HttpError(500, "Internal Server Error");
+    if (error.status === 409) {
+      throw error; // Re-throw the specific error for conflict
+    }
+    throw HttpError(500, "Internal Server Error");
   }
 };
-
 // Custom validator function to check if the user with _id exists
 
 const isExistingUser = async (value, helpers) => {
@@ -59,7 +53,7 @@ const registerSchema = Joi.object({
     .messages({
       "any.required": message.fieldRequired("email"),
       "string.pattern.base": message.emailInvalid,
-    }),
+    }).custom(isUniqueEmail),
   password: Joi.string()
     .min(8)
     .max(64)
