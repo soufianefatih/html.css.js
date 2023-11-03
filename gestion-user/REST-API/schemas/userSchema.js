@@ -1,7 +1,7 @@
 const Joi = require("joi");
 const { regExp, message } = require("../constants");
 const User = require('../models/user'); // Adjust the path as needed
-const { HttpError, BadRequestError} = require("../helpers");
+const {HttpError} = require("../helpers");
 
 
 // Custom validator function to check if the email is unique
@@ -25,16 +25,14 @@ const isExistingUser = async (value, helpers) => {
   try {
     const existingUser = await User.findById(value);
     if (!existingUser) {
-      throw new HttpError(409, "user not found");
+      throw HttpError(404, 'User not found');
     }
     return value;
   } catch (error) {
     console.error(error);
-    // Return a rejected promise with the error to ensure proper handling
-    return Promise.reject(error);
+    throw new Error('Database error');
   }
 };
-
 
 const registerSchema = Joi.object({
   name: Joi.string()
