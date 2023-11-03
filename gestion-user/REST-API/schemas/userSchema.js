@@ -2,21 +2,27 @@ const Joi = require("joi");
 const { regExp, message } = require("../constants");
 const User = require('../models/user'); // Adjust the path as needed
 const {HttpError} = require("../helpers");
+const AppError = require("../utils/error")
 
 
 // Custom validator function to check if the email is unique
-const isUniqueEmail = async (value, helpers,res) => {
+const isUniqueEmail = async (value, helpers,next) => {
   try {
     const existingUser = await User.findOne({ email: value });
     if (existingUser) {
-      const errorMessage = "Email is already in use by another user.";
-      throw  HttpError(409, errorMessage);
+      // const errorMessage = "Email is already in use by another user.";
+    //  const errorMessage= AppError.create("Email is already in use by another user.",409)
+      // throw  HttpError(409, errorMessage);
+      return next( AppError.create("Email is already in use by another user.",409))
     }
     return value;
   } catch (error) {
     console.error(error);
     // Handle other errors or rethrow them if needed
-    throw  HttpError(500, "Internal Server Error");
+    // const errorMessage= AppError.create("Internal Server Error",500)
+    return next( AppError.create("Internal Server Error",500))
+
+    // throw  HttpError(500, "Internal Server Error");
   }
 };
 

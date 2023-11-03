@@ -1,9 +1,9 @@
-export const errorHandler = (statusCode, message) => {
-    const error = new Error();
-    error.statusCode = statusCode;
-    error.message = message;
-    return error;
-  };
+// export const errorHandler = (statusCode, message) => {
+//     const error = new Error();
+//     error.statusCode = statusCode;
+//     error.message = message;
+//     return error;
+//   };
 
 
 //   class AppError extends Error {
@@ -25,6 +25,7 @@ class AppError extends Error {
     this.statusCode = statusCode;
       this.status = status;
       this.message = message;
+      return this
   }
 }
 
