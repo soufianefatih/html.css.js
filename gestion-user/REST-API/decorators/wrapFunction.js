@@ -28,15 +28,24 @@ const ctrlWrapper = require('./ctrlWrapper');
 //     }
 //   }
 // });
-const wrapFunction = (func) => ctrlWrapper(async (req, res) => {
-  try {
-    await func(req, res);
-  } catch (error) {
-    console.error(error);
+// const wrapFunction = (func) => ctrlWrapper(async (req, res) => {
+//   try {
+//     await func(req, res);
+//   } catch (error) {
+//     console.error(error);
 
-    // Return a meaningful error response to the client
-    res.status(500).json({ message: 'Internal Server Error' });
-  }
-});
+//     // Return a meaningful error response to the client
+//     res.status(500).json({ message: 'Internal Server Error' });
+//   }
+// });
 
-module.exports = wrapFunction;
+module.exports = (asynFn)=> {
+
+     return (req,res,next) => {
+      asynFn(req,res,next).catch((err)=>{
+        next(err)
+      })
+     }
+
+
+};
