@@ -1,7 +1,7 @@
 const Joi = require("joi");
 const { regExp, message } = require("../constants");
 const isUniqueEmail = require("../validator/emailIsexistValidation")
-
+const isExistingUser = require("../validator/useExistValidation")
 
 const registerSchema = Joi.object({
   name: Joi.string()

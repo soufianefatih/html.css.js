@@ -1,3 +1,7 @@
+const User = require('../models/user'); // Adjust the path as needed
+const {HttpError} = require("../helpers");
+
+
 // Custom validator function to check if the user with _id exists
 const isExistingUser = async (value, helpers) => {
     try {
@@ -11,3 +15,6 @@ const isExistingUser = async (value, helpers) => {
       console.error("isExistingUser error:", error); // You can handle the error here or throw it to be caught in the calling function
      return Promise.reject(error);  }
   };
+
+
+  module.exports = isExistingUser

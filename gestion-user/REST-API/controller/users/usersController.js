@@ -3,7 +3,9 @@ const Actions = require("../../classes/Action");
 const { userSchema } = require("../../schemas");
 const { HttpError, BadRequestError,hashedPassword} = require("../../helpers");
 const wrapFunction = require('../../decorators/wrapFunction')
-const { isExistingUser,isUniqueEmail } = require('../../schemas/userSchema')
+const isUniqueEmail  = require('../../validator/emailIsexistValidation')
+const isExistingUser = require('../../validator/emailIsexistValidation')
+
 const asyncHandler = require('express-async-handler')
 
 
