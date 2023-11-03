@@ -98,6 +98,6 @@ const updateSchema = Joi.object({
   role: Joi.string().min(0).max(64).messages()
 });
 
-  const userchemas = { registerSchema ,loginSchema,updateSchema, isExistingUser};
+  const userchemas = { registerSchema ,loginSchema,updateSchema, isExistingUser,isUniqueEmail};
 
   module.exports = userchemas;

@@ -63,18 +63,39 @@ try{
 //* update user
 
 exports.update = wrapFunction(async(req, res) => {
-  const { email: oldEmail, name: oldName } = req.body;
+  const {_id, email: oldEmail, name: oldName } = req.body;
+    const id = _id;
   console.log('usssss', req.body._id);
     const { value, error } = userSchema.updateSchema.validate(req.body, {
       abortEarly: false,
     });
 
- 
+    // Validate if _id is provided
+    // const id = req.body._id;
+    // const findemail = req.body.email
+    // if (!id) {
+    //   return res.status(400).json({ message: '_id is required in the request body' });
+    // }
+
+    // Update user based on _id
+    // const user = await User.findById(id);
+    const newEmail = await value.email;
+
     await isExistingUser(id, req, res);
     await isUniqueEmail(id, req, res);
 
 
+    // Check if user with the given _id exists
+    // if (!user) {
+    //   return res.status(404).json({ message: 'User not found' });
+    // }
+    // check email is exist
+    // const userEmail = await User.findOne({findemail});
  
+    // if (userEmail){
+    //   return res.status(409).json({ message:"Email has already in use"});
+    // } 
+
     if (error) {
       return res.status(400).json({ message: "Validation error", errors: error.details });
     }
@@ -82,7 +103,7 @@ exports.update = wrapFunction(async(req, res) => {
     const {name = oldName, email= oldEmail, password, role } = value;
     const updatedUser = {
       name,
-      email,
+      email :newEmail,
       role,
     };
 
