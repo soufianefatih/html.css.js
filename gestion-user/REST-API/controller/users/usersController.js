@@ -98,6 +98,8 @@ exports.updateuser = asyncHandler(async(req, res,next) => {
     //   return res.status(409).json({ message:"Email has already in use"});
     // } 
 
+   
+
     if (error) {
       return res.status(400).json({ message: "Validation error", errors: error.details });
     }
@@ -229,3 +231,4 @@ exports.update = asyncHandler(async (req, res, next) => {
     }
   }
 });
+
