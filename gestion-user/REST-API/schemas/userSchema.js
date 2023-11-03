@@ -11,15 +11,12 @@ const isUniqueEmail = async (value, helpers, next) => {
     const existingUser = await User.findOne({ email: value });
     if (existingUser) {
       const errorMessage = "Email is already in use by another user.";
-      throw HttpError(409, errorMessage);
+      return next(HttpError(409, errorMessage));
     }
     return value;
   } catch (error) {
     console.error(error);
-    if (error.status === 409) {
-      throw error; // Re-throw the specific error for conflict
-    }
-    throw HttpError(500, "Internal Server Error");
+    return next(HttpError(500, "Internal Server Error"));
   }
 };
 // Custom validator function to check if the user with _id exists

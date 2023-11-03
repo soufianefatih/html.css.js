@@ -63,7 +63,7 @@ try{
 
 //* update user
 
-exports.update = asyncHandler(async(req, res,next) => {
+exports.updateuser = asyncHandler(async(req, res,next) => {
   const {_id, email: oldEmail, name: oldName } = req.body;
     const id = _id;
   console.log('usssss', req.body._id);
@@ -185,3 +185,47 @@ exports.updateProfileuser = async (req, res) => {
     res.status(500).json({ message: "Internal Server Error" });
   }
 };
+
+exports.update = asyncHandler(async (req, res, next) => {
+  const { _id, email: oldEmail, name: oldName } = req.body;
+  const id = _id;
+
+  try {
+    const { value, error } = userSchema.updateSchema.validate(req.body, {
+      abortEarly: false,
+    });
+
+    const newEmail = await value.email;
+
+    await isExistingUser(id, req, res);
+    await isUniqueEmail(id, req, res);
+
+    if (error) {
+      return res.status(400).json({ message: "Validation error", errors: error.details });
+    }
+
+    const { name = oldName, email = oldEmail, password, role } = value;
+    const updatedUser = {
+      name,
+      email: newEmail,
+      role,
+    };
+
+    if (password) {
+      updatedUser.password = await hashedPassword(password);
+    }
+
+    const result = await User.findByIdAndUpdate(id, updatedUser, {
+      new: true,
+      select: "name email role",
+    });
+
+    res.json(result);
+  } catch (error) {
+    if (error.status === 409) {
+      return res.status(409).json({ message: error.message, error: error.message });
+    } else {
+      return res.status(500).json({ message: "Internal Server Error", error: error.message });
+    }
+  }
+});
