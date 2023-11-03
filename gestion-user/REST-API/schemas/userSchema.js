@@ -5,7 +5,7 @@ const {HttpError} = require("../helpers");
 
 
 // Custom validator function to check if the email is unique
-const isUniqueEmail = async (value, helpers) => {
+const isUniqueEmail = async (value, helpers,res) => {
   try {
     const existingUser = await User.findOne({ email: value });
     if (existingUser) {
