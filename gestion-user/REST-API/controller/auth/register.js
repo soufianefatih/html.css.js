@@ -7,6 +7,7 @@ const {isUniqueEmail } = require('../../schemas/userSchema')
 
 
 const register = asyncHandler(async (req, res) => {
+  try{ 
   const { value, error } =  userSchema.registerSchema.validate(req.body, {
     abortEarly: false,
   });
@@ -20,10 +21,10 @@ const register = asyncHandler(async (req, res) => {
       const role = data.type ? 'admin' : 'user';
 
   if (error) BadRequestError(error);
-
-  // const userEmail = await User.findOne({ email });
  
-  // if (userEmail)throw HttpError(409, "Email has already in use");
+  const newEmail = await value.email;
+  await isUniqueEmail(id, req, res);
+
 
   if(value.role == 'admin') throw HttpError(400,'this role is not available!');
   
@@ -35,6 +36,15 @@ const register = asyncHandler(async (req, res) => {
     });
   
       res.status(201).json(result);
+
+  }catch (error) {
+    if (error.status === 409) {
+      return res.status(409).json({ message: error.message});
+
+    } else {
+      return res.status(500).json({ message: "Internal Server Error", error: error.message });
+    }
+  }
  
 });
 
