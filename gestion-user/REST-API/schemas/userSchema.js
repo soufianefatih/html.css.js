@@ -26,14 +26,14 @@ const isUniqueEmail = async (value, { req }) => {
   try {
     const existingUser = await User.findOne({ email: value });
     if (existingUser && existingUser._id.toString() !== req.body._id) {
-      throw new Error(message.emailInvalid);
+      return Promise.reject(message.emailInvalid);
     }
     return value;
   } catch (error) {
-    console.error(error);
-    throw new Error(message.emailInvalid); // Reject the promise with an error
+    return Promise.reject(message.emailInvalid);
   }
 };
+
 
 const isExistingUser = async (value, helpers) => {
   try {

@@ -74,7 +74,7 @@ exports.update = asyncHandler(async (req, res, next) => {
   const id = _id;
 
   try {
-    const { value, error } = userSchema.updateSchema.validate(req.body, {
+    const { value, error } = await userSchema.updateSchema.validate(req.body, {
       abortEarly: false,
     });
 
@@ -84,8 +84,7 @@ exports.update = asyncHandler(async (req, res, next) => {
     await isUniqueEmail(id, req, res);
 
     if (error) {
-      return res.status(400).json({ message: "Validation error", errors: error.details });
-      // throw  BadRequestError(error )
+      return res.status(400).json({ message: "Validation error", errors: error.details });      // throw  BadRequestError(error )
     }
 
     const { name = oldName, email = oldEmail, password, role } = value;
