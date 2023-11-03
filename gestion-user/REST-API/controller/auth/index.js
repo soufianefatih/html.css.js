@@ -7,7 +7,7 @@ const logout = require("./logout");
 
 
 module.exports = {
-  register: ctrlWrapper(register),
+  register,
   login: ctrlWrapper(login),
   logout: ctrlWrapper(logout)
  

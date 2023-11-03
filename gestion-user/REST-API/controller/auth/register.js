@@ -1,8 +1,12 @@
 const { User } = require("../../models");
 const {  userSchema } = require("../../schemas");
 const { HttpError, BadRequestError } = require("../../helpers");
+const asyncHandler = require('express-async-handler')
+const {isUniqueEmail } = require('../../schemas/userSchema')
 
-const register = async (req, res) => {
+
+
+const register = asyncHandler(async (req, res) => {
   const { value, error } =  userSchema.registerSchema.validate(req.body, {
     abortEarly: false,
   });
@@ -32,7 +36,7 @@ const register = async (req, res) => {
   
       res.status(201).json(result);
  
-};
+});
 
 
 

@@ -188,6 +188,13 @@ exports.updateProfileuser = async (req, res) => {
   }
 };
 
+ // Global unhandled rejection handler
+process.on('unhandledRejection', (reason, promise) => {
+  console.error('Unhandled Rejection at:', promise, 'reason:', reason);
+  // Optionally handle the error or do any necessary cleanup
+});
+
+
 exports.update = asyncHandler(async (req, res, next) => {
   const { _id, email: oldEmail, name: oldName } = req.body;
   const id = _id;
@@ -227,8 +234,8 @@ exports.update = asyncHandler(async (req, res, next) => {
     if (error.status === 409) {
       return res.status(409).json({ message: error.message});
 
-    }else if(error.status === 400){
-      return res.status(400).json({ message: error.message});
+    }else if(error.status === 404){
+      return res.status(404).json({ message: error.message});
 
     } else {
       return res.status(500).json({ message: "Internal Server Error", error: error.message });
