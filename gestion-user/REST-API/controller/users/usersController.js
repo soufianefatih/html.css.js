@@ -9,7 +9,7 @@ const asyncHandler = require('express-async-handler')
 
 
 // * get all users
-exports.all = async (req, res) => {
+exports.all = asyncHandler(async (req, res) => {
   // let filters = req.query.filters || {};
 
 try{
@@ -22,10 +22,10 @@ try{
 }
 
 
-};
+});
 
 // * create new user
-exports.create = async (req, res) => {
+exports.create =  asyncHandler( async (req, res) => {
   const { value, error } = userSchema.registerSchema.validate(req.body, {
     abortEarly: false,
   });
@@ -58,7 +58,7 @@ try{
    }
 
 
-};
+});
 
 
 //* update user
@@ -85,6 +85,7 @@ exports.update = asyncHandler(async (req, res, next) => {
 
     if (error) {
       return res.status(400).json({ message: "Validation error", errors: error.details });
+      // throw  BadRequestError(error )
     }
 
     const { name = oldName, email = oldEmail, password, role } = value;
