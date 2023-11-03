@@ -20,7 +20,6 @@ const isUniqueEmail = async (value, helpers, next) => {
     return Promise.reject(error);
   }
 };
-// Custom validator function to check if the user with _id exists
 
 // const isUniqueEmail = async (value, { req }) => {
 //   try {
@@ -34,7 +33,7 @@ const isUniqueEmail = async (value, helpers, next) => {
 //   }
 // };
 
-
+// Custom validator function to check if the user with _id exists
 const isExistingUser = async (value, helpers) => {
   try {
     const existingUser = await User.findById(value);

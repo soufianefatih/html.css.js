@@ -20,8 +20,9 @@ const register = asyncHandler(async (req, res) => {
      const data = req.body
       const role = data.type ? 'admin' : 'user';
 
-  if (error) BadRequestError(error);
- 
+      if (error) {
+        return res.status(400).json({ message: "Validation error", errors: error.details });      // throw  BadRequestError(error )
+      }   
   const newEmail = await value.email;
   await isUniqueEmail(id, req, res);
 
