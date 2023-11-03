@@ -12,17 +12,19 @@ const isUniqueEmail = async (value, helpers,next) => {
     if (existingUser) {
       // const errorMessage = "Email is already in use by another user.";
     //  const errorMessage= AppError.create("Email is already in use by another user.",409)
-      // throw  HttpError(409, errorMessage);
-      return next( AppError.create("Email is already in use by another user.",409))
+      throw  HttpError(409, errorMessage);
+      // return next( AppError.create("Email is already in use by another user.",409))
+      // return new AppError(" emaoil Internal Server Error",409)
+
     }
     return value;
   } catch (error) {
     console.error(error);
     // Handle other errors or rethrow them if needed
-    // const errorMessage= AppError.create("Internal Server Error",500)
-    return next( AppError.create("Internal Server Error",500))
+    // return new AppError("Intern:al Server Error",500)
+  
 
-    // throw  HttpError(500, "Internal Server Error");
+    throw  HttpError(500, "Internal Server Error");
   }
 };
 

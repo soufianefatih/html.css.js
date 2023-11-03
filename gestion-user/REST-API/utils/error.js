@@ -6,27 +6,26 @@
 //   };
 
 
-//   class AppError extends Error {
-//     constructor(statusCode, status, message) {
-//         super(message);
-//         this.statusCode = statusCode;
-//         this.status = status;
-//         this.message = message;
-//     }
-// }
-
-
-class AppError extends Error {
-  constructor() {
-      super();
-     
-  }
-  create(message,statusCode,status){
-    this.statusCode = statusCode;
-      this.status = status;
-      this.message = message;
-      return this
-  }
+  class AppError extends Error {
+    constructor(statusCode, status, message) {
+        super(message);
+        this.statusCode = statusCode;
+        this.status = status;
+        this.message = message;
+    }
 }
 
-module.exports = new AppError();
+
+// class AppError extends Error {
+//   constructor() {
+//       super();  
+//   }
+//   create(message,statusCode,){
+//     this.statusCode = statusCode;
+//       // this.status = status;
+//       this.message = message;
+//       return this
+//   }
+// }
+
+module.exports =  AppError;
