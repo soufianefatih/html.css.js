@@ -1,3 +1,7 @@
+const User = require('../models/user'); // Adjust the path as needed
+const {HttpError} = require("../helpers");
+
+
 // Custom validator function to check if the email is unique
 const isUniqueEmail = async (value, helpers, next) => {
     try {
@@ -13,6 +17,8 @@ const isUniqueEmail = async (value, helpers, next) => {
       return Promise.reject(error);
     }
   };
+
+  module.exports = isUniqueEmail
   
   // const isUniqueEmail = async (value, { req }) => {
   //   try {
