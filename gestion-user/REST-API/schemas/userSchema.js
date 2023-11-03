@@ -3,7 +3,7 @@ const { regExp, message } = require("../constants");
 const User = require('../models/user'); // Adjust the path as needed
 const {HttpError} = require("../helpers");
 const AppError = require("../utils/error")
-
+const validator = require('validator');
 
 // Custom validator function to check if the email is unique
 const isUniqueEmail = async (value, helpers, next) => {
