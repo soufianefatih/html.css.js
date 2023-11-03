@@ -9,8 +9,7 @@ const isUniqueEmail = async (value, helpers) => {
   try {
     const existingUser = await User.findOne({ email: value });
     if (existingUser) {
-      throw new HttpError(409, "Email has already in use");
-    }
+      throw new HttpError(409, "Email has already in use");    }
     return value;
   } catch (error) {
     console.error(error);

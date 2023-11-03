@@ -9,11 +9,17 @@ const errorMessageList = {
   503: "Service Unavailable",
 };
 
-const HttpError = (status, message = errorMessageList[status]) => {
-  const error = new Error(message);
-  error.status = status;
-  return error;
-};
+// const HttpError = (status, message = errorMessageList[status]) => {
+//   const error = new Error(message);
+//   error.status = status;
+//   return error;
+// };
+class HttpError extends Error {
+  constructor(status, message) {
+    super(message);
+    this.status = status;
+  }
+}
 
 module.exports = HttpError;
 
