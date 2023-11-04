@@ -1,10 +1,9 @@
 const User = require("../../models/user");
 const Actions = require("../../classes/Action");
 const { userSchema } = require("../../schemas");
-const { HttpError, BadRequestError,hashedPassword} = require("../../helpers");
-const wrapFunction = require('../../decorators/wrapFunction')
+const {BadRequestError,hashedPassword} = require("../../helpers");
 const isUniqueEmail  = require('../../validator/emailIsexistValidation')
-const isExistingUser = require('../../validator/emailIsexistValidation')
+const isExistingUser = require('../../validator/useExistValidation')
 
 const asyncHandler = require('express-async-handler')
 
@@ -74,20 +73,18 @@ process.on('unhandledRejection', (reason, promise) => {
 exports.update = asyncHandler(async (req, res, next) => {
   const { _id, email: oldEmail, name: oldName } = req.body;
   const id = _id;
-
   try {
     const { value, error } = await userSchema.updateSchema.validate(req.body, {
       abortEarly: false,
     });
 
     const newEmail = await value.email;
-
     await isExistingUser(id, req, res);
     await isUniqueEmail(id, req, res);
 
 
     if (error) {
-      return res.status(400).json({ message: "Validation error", errors: error.details });      // throw  BadRequestError(error )
+      return res.status(400).json({ message: "Validation error", errors: error.details[0].message });   // throw  BadRequestError(error )
     }
 
     const { name = oldName, email = oldEmail, password, role } = value;
