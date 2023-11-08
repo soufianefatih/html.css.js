@@ -681,8 +681,8 @@
 function concatener(tab1, tab2) {
     
 	// Écrivez votre code ici
-	// return  tab1.concat(tab2);
-  return [...tab1,...tab2]
+	return  tab1.concat(tab2);
+  // return [...tab1,...tab2]
 
 }
 
