@@ -775,3 +775,17 @@ function formatPrs(personne) {
 // Afficher la sortie
 console.log(formatPrs({nom: "Thomas", age: "25", adresse: "Paris"}));
 console.log(formatPrs({nom: "Emily", age: "22", adresse: "Nantes"}));
+
+
+
+// :::::::::::::::::::::::::::::::::::: myFeeling  :::::::::::::::::::::::::::
+
+function myFeeling(feeling) {
+	// Écrivez votre code ici
+	return `Aujourd'hui, je me sens ${feeling || "neutre"}`
+}
+
+// Afficher la sortie
+console.log(myFeeling("heureux"));
+console.log(myFeeling("triste"));
+console.log(myFeeling());
