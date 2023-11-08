@@ -9,8 +9,6 @@ const login =  asyncHandler (async (req, res) => {
   });
   if (error) BadRequestError(error);
 
-  if (error) BadRequestError(error);
-
   const { email, password } = value;
   const user = await User.findOne({ email });
   if (!user) throw HttpError(401, "Email is wrong");
