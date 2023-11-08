@@ -769,6 +769,7 @@ console.log(containSpaces(""))
 
 function formatPrs(personne) {
 	// Écrivez votre code ici
+  return `${personne.nom} a ${personne.age} ans. Il habite à ${personne.adresse}.`;
 }
 
 // Afficher la sortie
