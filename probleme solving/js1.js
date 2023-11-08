@@ -723,3 +723,28 @@
 // console.log(nbrExist([6, 7, 8], 7));
 // console.log(nbrExist([1, 2, 3], 5));
 // console.log(nbrExist([], 0));
+
+
+
+// :::::::::::::::::::::::::::::::::::: checks  :::::::::::::::::::::::::::
+
+
+
+function checkS(str) {
+	// Écrivez votre code ici
+	 return str[str.length-1] === "s";
+	
+}
+
+// Afficher la sortie
+console.log(checkS("Thomas"));
+console.log(checkS("Ali"));
+console.log(checkS("Alex"));
+console.log(checkS("Alvis"));
+
+
+const array = "abcdec"
+const result = array[array.length-1]
+console.log(result);
+console.log(array.length)
+console.log(array[5]);
