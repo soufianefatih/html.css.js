@@ -695,31 +695,31 @@
 
 // :::::::::::::::::::::::::::::::::::: find index elment array   :::::::::::::::::::::::::::
 
-function find(tab, val) {
-	// Écrivez votre code ici
+// function find(tab, val) {
+// 	// Écrivez votre code ici
   
-  for(var i = 0; i < tab.length; i++){
-    if(tab[i] == val) return i;
-  }
-  return -1
-}
+//   for(var i = 0; i < tab.length; i++){
+//     if(tab[i] == val) return i;
+//   }
+//   return -1
+// }
 
-// Afficher la sortie
-console.log(find([2, 7, 1], 7));
-console.log(find([6, 9, 5], 6));
-console.log(find([6, 7, 8], 9));
+// // Afficher la sortie
+// console.log(find([2, 7, 1], 7));
+// console.log(find([6, 9, 5], 6));
+// console.log(find([6, 7, 8], 9));
 
 // :::::::::::::::::::::::::::::Écrivez une fonction pour vérifier si un tableau contient un nombre particulier.   :::::::::::::::::::::::::::
 
-function nbrExist(tab, val) {
-	// Écrivez votre code ici
-  for(var i = 0; i < tab.length; i++){
-    if(tab[i] == val) return true;
-  }
-  return false
-}
+// function nbrExist(tab, val) {
+// 	// Écrivez votre code ici
+//   for(var i = 0; i < tab.length; i++){
+//     if(tab[i] == val) return true;
+//   }
+//   return false
+// }
 
-// Afficher la sortie
-console.log(nbrExist([6, 7, 8], 7));
-console.log(nbrExist([1, 2, 3], 5));
-console.log(nbrExist([], 0));
+// // Afficher la sortie
+// console.log(nbrExist([6, 7, 8], 7));
+// console.log(nbrExist([1, 2, 3], 5));
+// console.log(nbrExist([], 0));
