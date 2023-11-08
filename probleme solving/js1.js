@@ -690,3 +690,16 @@ function concatener(tab1, tab2) {
 console.log(concatener([1, 2], [3, 4]));
 console.log(concatener([9, 8], [1, 5, 6, 7]));
 console.log(concatener([1, 1, 1], [2, 2, 2]));
+
+
+
+// :::::::::::::::::::::::::::::::::::: find index elment array   :::::::::::::::::::::::::::
+
+function find(tab, val) {
+	// Écrivez votre code ici
+}
+
+// Afficher la sortie
+console.log(find([2, 7, 1], 7));
+console.log(find([6, 9, 5], 6));
+console.log(find([6, 7, 8], 9));
