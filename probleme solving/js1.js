@@ -749,14 +749,28 @@ console.log(result);
 console.log(array.length)
 console.log(array[5]);
 
+// :::::::::::::::::::::::::::::::::::: includes function  :::::::::::::::::::::::::::
 
 
 function containSpaces(str) {
 	// Écrivez votre code ici
+  return str.includes('a')
 }
 
 // Afficher la sortie
 console.log(containSpaces("Thomas"));
 console.log(containSpaces("Hello World!"));
-console.log(containSpaces(" "));
+console.log(containSpaces("a "));
 console.log(containSpaces(""))
+
+
+// :::::::::::::::::::::::::::::::::::: object  :::::::::::::::::::::::::::
+
+
+function formatPrs(personne) {
+	// Écrivez votre code ici
+}
+
+// Afficher la sortie
+console.log(formatPrs({nom: "Thomas", age: "25", adresse: "Paris"}));
+console.log(formatPrs({nom: "Emily", age: "22", adresse: "Nantes"}));
