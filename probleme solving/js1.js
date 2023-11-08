@@ -748,3 +748,15 @@ const result = array[array.length-1]
 console.log(result);
 console.log(array.length)
 console.log(array[5]);
+
+
+
+function containSpaces(str) {
+	// Écrivez votre code ici
+}
+
+// Afficher la sortie
+console.log(containSpaces("Thomas"));
+console.log(containSpaces("Hello World!"));
+console.log(containSpaces(" "));
+console.log(containSpaces(""))
