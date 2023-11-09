@@ -3,12 +3,17 @@ import { useState } from 'react'
 
 export default function State() {
 
-    const [value,setValue] =useState('value')
+ const [counter,setCounter] =useState('value')
+ 
+ function update() {
+    setCounter('nour')
 
+ }
 
   return (
-  <h1>
-    {value}
-  </h1>
+  <>
+      <h1>{counter}</h1>
+      <button onClick={update}> Click</button>
+  </>
   )
 }
