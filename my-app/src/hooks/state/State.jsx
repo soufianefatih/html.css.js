@@ -3,12 +3,11 @@ import { useState } from 'react'
 
 export default function State() {
 
- const [value,setValue] =useState()
- const [postes , setPostes] = useState()
+ const [posts , setPosts] = useState()
    
- const posts = fetch('https://jsonplaceholder.typicode.com/posts')
+  fetch('https://jsonplaceholder.typicode.com/posts')
  .then(res => res.json())
- .then(data => setPostes(data))
+ .then(data => setPosts(data))
  
   return (
   <>
