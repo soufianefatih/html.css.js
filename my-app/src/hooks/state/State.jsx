@@ -7,7 +7,7 @@ export default function State() {
  const [postId , setPostId] = useState(1)
 
  const updateUp =()=> setPostId(prev=>prev+1)
- const updateDown =()=> setPostId(prev=>prev+1)
+ const updateDown =()=> setPostId(prev=>prev-1)
 
 
    
@@ -16,8 +16,11 @@ export default function State() {
  .then(data => setPosts(data))
  
   return (
-  <>
-      <h3>{posts?.map( (post) => (
+  
+  <div>
+    <button onClick={updateUp}>up</button>
+    <button onClick={updateDown}>down</button>
+      {posts?.map( (post) => (
         <>{post.id === postId
             ?(<>{post.title}</>)
             :("")
@@ -25,10 +28,11 @@ export default function State() {
         } <br/>
 
         </>))}
-         </h3>
+        
      
      
-  </>
+         </div>
+
   )
 }
 
