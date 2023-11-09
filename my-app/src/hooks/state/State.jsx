@@ -21,9 +21,9 @@ import React from 'react'
 // }
 
 
-import React from 'react'
 
 export default function state() {
+    const posts = fetch('https://jsonplaceholder.typicode.com/posts')
   return (
     <div>state</div>
   )
