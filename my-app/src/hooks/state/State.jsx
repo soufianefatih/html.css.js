@@ -4,7 +4,11 @@ import { useState } from 'react'
 export default function State() {
 
  const [posts , setPosts] = useState()
- const [postId , setPostId] = useState(5)
+ const [postId , setPostId] = useState(1)
+
+ const updateUp =()=> setPostId(prev=>prev+1)
+ const updateDown =()=> setPostId(prev=>prev+1)
+
 
    
   fetch('https://jsonplaceholder.typicode.com/posts')
