@@ -11,7 +11,15 @@ export default function State() {
  
   return (
   <>
-      <h1>{posts.map(post => <>{post.title}</>)}</h1>
+      <h3>{posts?.map( (post) => (
+        <>{post.id === 1
+            ?(<>{post.title}</>)
+            :("")
+        
+        } <br/>
+
+        </>))}
+         </h3>
      
      
   </>
