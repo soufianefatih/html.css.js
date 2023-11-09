@@ -24,6 +24,8 @@ import React from 'react'
 
 export default function state() {
     const posts = fetch('https://jsonplaceholder.typicode.com/posts')
+    .then(res => res.json())
+    .then(data => console.log(data))
   return (
     <div>state</div>
   )
