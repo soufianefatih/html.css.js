@@ -1,31 +1,30 @@
 import React from 'react'
-import { useState } from 'react'
+// import { useState } from 'react'
 
-export default function State() {
+// export default function State() {
 
- const [value,setValue] =useState(0)
+//  const [value,setValue] =useState(0)
  
- function update() {
-    setValue(value +1)
+//  const updateUp = ()=> { setValue(prev => prev +1)}
+// const updateDown =() =>{setValue(prev => prev -1)}
+// const reset =()=> { setValue(0) }
 
- }
- function unpdate() {
-    setValue(value -1)
+//   return (
+//   <>
+//       <h1>{value}</h1>
+//       <button onClick={updateUp}> Up</button>
+//       <button onClick={reset}> reset </button> 
+//       <button onClick={updateDown}> Down</button>
+     
+//   </>
+//   )
+// }
 
- }
- function reset() {
-    setValue(0)
 
- }
+import React from 'react'
 
+export default function state() {
   return (
-  <>
-      <h1>{value}</h1>
-      <button onClick={update}> Click</button>
-      <button onClick={unpdate}> Click -</button>
-      <button onClick={reset}> reset -</button>
-
-
-  </>
+    <div>state</div>
   )
 }
