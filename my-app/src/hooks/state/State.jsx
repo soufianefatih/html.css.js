@@ -21,13 +21,19 @@ export default function State() {
     <button onClick={updateUp}>up</button>
     <button onClick={updateDown}>down</button>
       {posts?.map( (post) => (
-        <>{post.id === postId
-            ?(<>{post.title}</>)
+        <>
+        {post.id === postId
+            ?
+            (<>
+            <h2>{post.id} :{post.title}</h2>
+             <p>{post.body}</p>
+            </> )
             :("")
         
         } <br/>
 
-        </>))}
+        </>
+        ))}
         
      
      
