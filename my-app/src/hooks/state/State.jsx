@@ -4,6 +4,8 @@ import { useState } from 'react'
 export default function State() {
 
  const [posts , setPosts] = useState()
+ const [postId , setPostId] = useState(1)
+
    
   fetch('https://jsonplaceholder.typicode.com/posts')
  .then(res => res.json())
@@ -12,7 +14,7 @@ export default function State() {
   return (
   <>
       <h3>{posts?.map( (post) => (
-        <>{post.id === 1
+        <>{post.id === postId
             ?(<>{post.title}</>)
             :("")
         
