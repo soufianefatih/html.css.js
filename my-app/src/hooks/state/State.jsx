@@ -10,7 +10,6 @@ export default function State() {
  const updateDown =()=> setPostId(prev=>prev-1)
 
 
-   
   fetch('https://jsonplaceholder.typicode.com/posts')
  .then(res => res.json())
  .then(data => setPosts(data))
