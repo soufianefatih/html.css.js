@@ -4,7 +4,7 @@ import { useState } from 'react'
 export default function State() {
 
  const [posts , setPosts] = useState()
- const [postId , setPostId] = useState(1)
+ const [postId , setPostId] = useState(5)
 
    
   fetch('https://jsonplaceholder.typicode.com/posts')
