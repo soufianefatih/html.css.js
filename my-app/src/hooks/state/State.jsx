@@ -11,10 +11,8 @@ const reset =()=> { setValue(0) }
 
   return (
   <>
-      <h1>{value}</h1>
-      <button onClick={updateUp}> Up</button>
-      <button onClick={reset}> reset -</button> 
-      <button onClick={updateDown}> Down</button>
+      <h1>data</h1>
+     
      
   </>
   )
