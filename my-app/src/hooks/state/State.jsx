@@ -11,7 +11,7 @@ export default function State() {
  
   return (
   <>
-      <h1>data</h1>
+      <h1>{posts.map(post => <>{post.title}</>)}</h1>
      
      
   </>
