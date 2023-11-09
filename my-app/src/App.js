@@ -1,12 +1,13 @@
 import './App.css';
+import State from './hooks/state/State';
 
 function App() {
   return (
-    <div className="App">
-    <h1>Hello world</h1>
-     
-    </div>
-  );
+     <>
+     <State/>
+     </>     
+    )
+  
 }
 
 export default App;
