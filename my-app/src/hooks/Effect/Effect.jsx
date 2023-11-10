@@ -3,6 +3,8 @@ import React, { useEffect,useState } from 'react'
 export default function Effect() {
 
  const [users , setusers] = useState([])
+ const [filterUsers , setfilterUsers] = useState([])
+
 
     useEffect(()=>{
         fetch('https://jsonplaceholder.typicode.com/users')
@@ -21,14 +23,18 @@ useEffect(()=>{
 },[users])
 
 const handleChange = (e)=>{
-    console.log(e.target.value);
+    const filter = users.filter(
+        user => user.name.includes(e.target.value)
+    )
+    setfilterUsers(filter)
+    console.log(filter);
 }
      
      return (
 
     <>
      <input type="text" className='search' onInput={handleChange} />
-       {users.map(
+       {filterUsers.map(
         user => 
         <h3 key = {user.id}> 
              {user.name}
