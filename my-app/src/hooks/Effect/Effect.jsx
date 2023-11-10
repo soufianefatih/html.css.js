@@ -34,16 +34,13 @@ useEffect(()=>{
         user => user.name.toLowerCase().includes(inputValue)
     )
     setfilterUsers(filter)
-} ,[inputValue])
+},[inputValue])
 
-const handleChange = (e)=>{
-setInputValue(e.target.value)
-}
      
      return (
 
     <>
-     <input type="text" className='search' onInput={handleChange} />
+     <input type="text" className='search' onInput={(e)=> setInputValue(e.target.value)} />
        {filterUsers.map(
         user => 
         <h3 key = {user.id}> 
