@@ -7,7 +7,7 @@ export default function Effect() {
     useEffect(()=>{
         fetch('https://jsonplaceholder.typicode.com/users')
         .then(res =>res.json())
-        .then(data =>console.log(data))
+        .then(data =>setusers(data))
         return ()=> {
             console.log('finishid');
         }
@@ -19,12 +19,18 @@ useEffect(()=>{
         console.log(users);
     }
 },[users])
+
+const handleChange = (e)=>{
+    console.log(e.target.value);
+}
      
      return (
+
     <>
+     <input type="text" className='search' onInput={handleChange} />
        {users.map(
         user => 
-        <h3> key = {user.id}
+        <h3 key = {user.id}> 
              {user.name}
         </h3>
        )}
