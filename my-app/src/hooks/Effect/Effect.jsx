@@ -4,6 +4,8 @@ export default function Effect() {
 
  const [users , setusers] = useState([])
  const [filterUsers , setfilterUsers] = useState([])
+ const [inputValue , setInputValue] = useState('')
+
 
 
     useEffect(()=>{
@@ -26,12 +28,16 @@ useEffect(()=>{
     }
 },[users])
 
-const handleChange = (e)=>{
+
+useEffect(()=>{
     const filter = users.filter(
-        user => user.name.toLowerCase().includes(e.target.value)
+        user => user.name.toLowerCase().includes(inputValue)
     )
     setfilterUsers(filter)
-    console.log(filter);
+} ,[inputValue])
+
+const handleChange = (e)=>{
+setInputValue(e.target.value)
 }
      
      return (
