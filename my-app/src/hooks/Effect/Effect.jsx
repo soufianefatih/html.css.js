@@ -5,7 +5,9 @@ export default function Effect() {
  const [counter , setCounter] = useState(0)
 
     useEffect(()=>{
-        console.log('mount');
+        fetch('https://jsonplaceholder.typicode.com/users')
+        .then(res =>res.json())
+        .then(data =>console.log(data))
     },[counter])
 
 const update = () => setCounter(prev => prev + 1) 
