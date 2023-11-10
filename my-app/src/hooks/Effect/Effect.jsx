@@ -2,22 +2,28 @@ import React, { useEffect,useState } from 'react'
 
 export default function Effect() {
 
- const [counter , setCounter] = useState(0)
+ const [user , setUser] = useState([])
 
     useEffect(()=>{
         fetch('https://jsonplaceholder.typicode.com/users')
         .then(res =>res.json())
         .then(data =>console.log(data))
-    },[counter])
+        return ()=> {
+            console.log('finishid');
+        }
+    },[])
 
-const update = () => setCounter(prev => prev + 1) 
+// const update = () => setUser(prev => prev + 1) 
+useEffect(()=>{
+    if (user.length > 0) {
+        console.log(user);
+    }
+},[user])
      
      return (
     <>
-       <h1>
-        {counter}
-       </h1>
-       <button onClick={update}>Click</button>
+       <h1>ha</h1>
+       <button >Click</button>
     </>
   )
 }
