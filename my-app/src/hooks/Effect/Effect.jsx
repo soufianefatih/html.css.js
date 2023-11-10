@@ -2,7 +2,7 @@ import React, { useEffect,useState } from 'react'
 
 export default function Effect() {
 
- const [user , setUser] = useState([])
+ const [users , setusers] = useState([])
 
     useEffect(()=>{
         fetch('https://jsonplaceholder.typicode.com/users')
@@ -13,17 +13,21 @@ export default function Effect() {
         }
     },[])
 
-// const update = () => setUser(prev => prev + 1) 
+// const update = () => setusers(prev => prev + 1) 
 useEffect(()=>{
-    if (user.length > 0) {
-        console.log(user);
+    if (users.length > 0) {
+        console.log(users);
     }
-},[user])
+},[users])
      
      return (
     <>
-       <h1>ha</h1>
-       <button >Click</button>
+       {users.map(
+        user => 
+        <h3> key = {user.id}
+             {user.name}
+        </h3>
+       )}
     </>
   )
 }
