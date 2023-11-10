@@ -9,3 +9,8 @@ export default function Effect() {
     <div>Effect</div>
   )
 }
+
+
+
+// *component life cycle
+// * monunt --> Update --> Unmount
