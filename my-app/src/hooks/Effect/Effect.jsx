@@ -28,7 +28,7 @@ useEffect(()=>{
 
 const handleChange = (e)=>{
     const filter = users.filter(
-        user => user.name.includes(e.target.value)
+        user => user.name.toLowerCase().includes(e.target.value)
     )
     setfilterUsers(filter)
     console.log(filter);
