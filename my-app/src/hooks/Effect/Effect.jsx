@@ -15,7 +15,11 @@ export default function Effect() {
         }
     },[])
 
-// const update = () => setusers(prev => prev + 1) 
+
+useEffect(()=>{
+       setfilterUsers(users)
+    },[users])
+
 useEffect(()=>{
     if (users.length > 0) {
         console.log(users);
