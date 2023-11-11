@@ -26,7 +26,6 @@ const swaggerDocument = require("./swagger.json");
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(bodyParser.json());
 
-
    //* global midleware for not router
     app.use((req, res) => {
       res.status(404).json({ message: "Root Not Found" });
@@ -38,11 +37,11 @@ const swaggerDocument = require("./swagger.json");
       res.status(status).json({ message });
     });
 
-    // app.use((err, req, res, next) => {
-    //   const { status = 500, message = "Server Error" } = err;
-    //   console.error(err); // Log the error for debugging
-    //   res.status(status).json({ message });
-    // });
+    app.use((err, req, res, next) => {
+      const { status = 500, message = "Server Error" } = err;
+      console.error(err); // Log the error for debugging
+      res.status(status).json({ message });
+    });
 
     app.use((err, req, res, next) => {
       console.error(err.stack);
