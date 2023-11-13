@@ -4,7 +4,9 @@ export default function Ref() {
 
 const moveDown = ()=> {
     console.log(lastPara.current);
-    lastPara.current.scrollIntoView()
+    lastPara.current.scrollIntoView({
+        behavior : "smooth"
+    })
 
 }
 
