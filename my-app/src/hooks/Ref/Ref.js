@@ -4,6 +4,8 @@ export default function Ref() {
 
 const moveDown = ()=> {
     console.log(lastPara.current);
+    lastPara.current.scrollIntoView()
+
 }
 
 
