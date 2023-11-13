@@ -8,7 +8,7 @@ export default function Memo() {
    
   const isEven =  useMemo(()=>{
      let i =0
-     while (i< 2000000000000) i++
+     while (i< 2000000) i++
         return counterOne % 2 === 0
     },[counterOne])
    
