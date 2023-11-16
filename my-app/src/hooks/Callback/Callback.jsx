@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import Age from './Age'
 import Salary from './Salary'
 import"./callback.css"
@@ -8,8 +8,8 @@ export default function Callback() {
     const [age , setAge] = useState(20)
     const [salary, setSalary] = useState(1000)
 
-    const ageUp = ()=> setAge (age +1)
-    const salaryUp = ()=> setSalary (salary +1)
+    const ageUp =   useCallback(()=> setAge (age +1),[age])
+    const salaryUp =   useCallback(()=> setSalary (salary +1000),[salary])
 
     
   return (
