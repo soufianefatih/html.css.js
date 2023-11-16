@@ -17,7 +17,6 @@ export default function Effect() {
         }
     },[])
 
-
 useEffect(()=>{
        setfilterUsers(users)
     },[users])
