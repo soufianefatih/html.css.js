@@ -7,6 +7,10 @@ import Button from './Button'
 export default function Callback() {
     const [age , setAge] = useState(20)
     const [salary, setSalary] = useState(1000)
+
+    const ageUp = ()=> setAge (age +1)
+    const salaryUp = ()=> setSalary (salary +1)
+
     
   return (
    <>
@@ -18,7 +22,7 @@ export default function Callback() {
     </div>
     <div className='blue'>
     <Button text = {'Age Up'} action= {ageUp}/>
-    <Button text = {'Salary Up'} action= {SalaryUp}/>
+    <Button text = {'Salary Up'} action= {salaryUp}/>
 
     </div>
    
