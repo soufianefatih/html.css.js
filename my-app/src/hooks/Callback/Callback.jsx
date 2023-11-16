@@ -6,6 +6,10 @@ export default function Callback() {
     const [salary, setSalary] = useState(1000)
     
   return (
-    <div>Callback</div>
+    <div>
+     <Age age ={age}/>
+    <br/>
+    {salary}
+    </div>
   )
 }
