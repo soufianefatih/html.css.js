@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Age from './Age'
+import Salary from './Salary'
 
 export default function Callback() {
     const [age , setAge] = useState(20)
@@ -8,8 +9,8 @@ export default function Callback() {
   return (
     <div>
      <Age age ={age}/>
-    <br/>
-    {salary}
+     <Salary salary ={salary}/>
+
     </div>
   )
 }
