@@ -7,7 +7,7 @@ export default function Callback() {
     const [salary, setSalary] = useState(1000)
     
   return (
-    <div>
+    <div className='red'>
      <Age age ={age}/>
      <Salary salary ={salary}/>
 
