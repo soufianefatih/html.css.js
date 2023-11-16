@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Age from './Age'
 import Salary from './Salary'
+import"./callback.css"
 
 export default function Callback() {
     const [age , setAge] = useState(20)
