@@ -17,8 +17,8 @@ export default function Callback() {
 
     </div>
     <div className='blue'>
-    <Button text = {'Age Up'}/>
-    <Button text = {'Salary Up'}/>
+    <Button text = {'Age Up'} action= {ageUp}/>
+    <Button text = {'Salary Up'} action= {SalaryUp}/>
 
     </div>
    
