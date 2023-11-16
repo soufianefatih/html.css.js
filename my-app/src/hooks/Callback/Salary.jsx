@@ -1,9 +1,12 @@
 import React from 'react'
 
-export default function Salary({salary}) {
+ function Salary({salary}) {
     console.log('Render salary Component');
 
   return (
     <h4>{salary}</h4>
   )
 }
+
+
+export default React.memo(Salary)
