@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 
 export default function Context() {
-    const [yserOne , setUserOne] = useState('majed')
+    const [userOne , setUserOne] = useState('majed')
 
   return (
-    <div>Context</div>
+    <div>{userOne}</div>
   )
 }
