@@ -1,7 +1,11 @@
-import React from 'react'
+import React, {useContext} from 'react'
 
-export default function CurentUser({user}) {
+export default function CurentUser() {
+
+
+
+    
   return (
-    <div>{user}</div>
+    <div></div>
   )
 }
