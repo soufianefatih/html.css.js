@@ -1,7 +1,7 @@
 import React from 'react'
 
-export default function Card() {
+export default function Card({children}) {
   return (
-    <div>Card</div>
+    <div>{children}</div>
   )
 }
