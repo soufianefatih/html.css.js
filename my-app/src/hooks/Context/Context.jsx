@@ -2,12 +2,14 @@ import React, { useState ,createContext} from 'react'
 import User from './User'
 
 
-const UserContext = 
+export const UserContext = createContext(null)
 
 export default function Context() {
     const [userOne , setUserOne] = useState('majed')
 
   return (
-    <User user = {userOne}/>
+    <UserContext.Provider>
+            <User user = {userOne}/>
+    </UserContext.Provider>
   )
 }
