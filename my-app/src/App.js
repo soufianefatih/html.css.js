@@ -1,5 +1,5 @@
 import './App.css';
-import Callback from './hooks/Callback/Callback';
+// import Callback from './hooks/Callback/Callback';
 import Context from './hooks/Context/Context';
 // import Memo from './hooks/Memo/Memo';
 // import Effect from './hooks/Effect/Effect';
