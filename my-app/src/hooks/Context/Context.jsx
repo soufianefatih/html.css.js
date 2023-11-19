@@ -8,8 +8,8 @@ export default function Context() {
     const [userOne , setUserOne] = useState('majed')
 
   return (
-    <UserContext.Provider>
-            <User user = {userOne}/>
+    <UserContext.Provider value={userOne}>
+            <User />
     </UserContext.Provider>
   )
 }
