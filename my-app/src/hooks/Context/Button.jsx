@@ -2,6 +2,10 @@ import React from 'react'
 
 export default function Button() {
   return (
-    <button>Update User</button>
+    <button onClick={()=>{
+        setUserOne("soufiane")
+    }}>
+        Update User
+    </button>
   )
 }
