@@ -7,7 +7,7 @@ import UserContext from './UserContext'
 export default function Context() {
     const [userOne , setUserOne] = useState('majed')
 
-    const userValue = {userOne}
+    const userValue = {userOne,setUserOne}
   return (
     <UserContext.Provider value={userValue}>
             <User />
