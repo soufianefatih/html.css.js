@@ -1,10 +1,11 @@
 import React from 'react'
 import Card from './Card'
+import CurentUser from './CurentUser'
 
 export default function User({user}) {
   return (
     <Card>
-    <div>{user}</div>
-    </Card>
+    <CurentUser user = {user}/> 
+   </Card>
   )
 }
