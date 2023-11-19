@@ -7,6 +7,6 @@ const {userOne} = useContext(UserContext)
 
 
   return (
-    <div></div>
+    <div>{userOne}</div>
   )
 }
